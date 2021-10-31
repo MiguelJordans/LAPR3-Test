@@ -52,7 +52,6 @@ public class Position {
         this.sog = sog;
     }
 
-
     public long getCog(int i) {
         return cog[i];
     }

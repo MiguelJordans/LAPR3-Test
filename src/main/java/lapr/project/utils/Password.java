@@ -1,8 +1,7 @@
 package lapr.project.utils;
 
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
