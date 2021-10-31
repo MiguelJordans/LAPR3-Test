@@ -17,7 +17,6 @@ public class Position {
 
     }
 
-
     //Getters and Setters
     public long getLatitude(int i) {
         return latitude[i];
