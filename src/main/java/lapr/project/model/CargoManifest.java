@@ -4,42 +4,44 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
+//Vai ser preciso implementar métodos que demos na PL1 de ESINF para percorrer os HASHMAPS 
+
 public class CargoManifest {
 
-    private HashMap<String,String> cargoManifest_Containers = new HashMap<>();
-    private int[][][] containerPosition;
-    private HashMap<String,String> cargoManifest_ContainerGross = new HashMap<>();
+    private HashMap<String, Container> cargoManifest_Containers;
+    private int[][][] containerPosition; // ISTO AINDA NAO ESTA CORRETO
+    private HashMap<String, Integer> cargoManifest_ContainerGross;
 
-    public CargoManifest(HashMap<String,String> cargoManifest_Containers,int[][][] containerPosition,HashMap<String,String>cargoManifest_ContainerGross){
+    public CargoManifest(HashMap<String, Container> cargoManifest_Containers, int[][][] containerPosition, HashMap<String, Integer> cargoManifest_ContainerGross) {
 
         this.cargoManifest_Containers = cargoManifest_Containers;
         this.containerPosition = containerPosition;
-        this.cargoManifest_ContainerGross=cargoManifest_ContainerGross;
-
-    }
-
-    public void setCargoManifest_ContainerGross(HashMap<String, String> cargoManifest_ContainerGross) {
         this.cargoManifest_ContainerGross = cargoManifest_ContainerGross;
+
     }
 
-    public void setCargoManifest_Containers(HashMap<String, String> cargoManifest_Containers) {
+    public void setCargoManifest_Containers(HashMap<String, Container> cargoManifest_Containers) {
         this.cargoManifest_Containers = cargoManifest_Containers;
+    }
+
+    public void setCargoManifest_ContainerGross(HashMap<String, Integer> cargoManifest_ContainerGross) {
+        this.cargoManifest_ContainerGross = cargoManifest_ContainerGross;
     }
 
     public void setContainerPosition(int[][][] containerPosition) {
         this.containerPosition = containerPosition;
     }
 
-    public HashMap<String, String> getCargoManifest_ContainerGross() {
-        return cargoManifest_ContainerGross;
+    public int[][][] getContainerPosition() {
+        return containerPosition;
     }
 
-    public HashMap<String, String> getCargoManifest_Containers() {
+    public HashMap<String, Container> getCargoManifest_Containers() {
         return cargoManifest_Containers;
     }
 
-    public int[][][] getContainerPosition() {
-        return containerPosition;
+    public HashMap<String, Integer> getCargoManifest_ContainerGross() {
+        return cargoManifest_ContainerGross;
     }
 
     @Override
