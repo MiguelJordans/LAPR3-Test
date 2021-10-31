@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class Facility {
+-Identification
+-Name
+-Continent
+-Country
+}
+
+class Location{
+-Latitude
+-Longitude
+}
+
+class Port{
+}
+
+class Warehouse{
+}
+
+Facility -> Location
+
+Port --|> Facility
+Warehouse --|> Facility
+
+
+@enduml
