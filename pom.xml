@@ -67,9 +67,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>surefire-booter</artifactId>
             <version>2.22.2</version>
+=======
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+>>>>>>> ebbe19f5328ff328b28613e7d567da142b34bdf5
         </dependency>
 
     </dependencies>
