@@ -2,15 +2,13 @@ package lapr.project.utils;
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Password implements Serializable {
+public class Password {
 
     private String password;
 
-    public Password(String password)
-    {
+    public Password(String password) {
         if (!validate(password))
             throw new IllegalArgumentException("Invalid Email Address.");
         this.password = password;
@@ -26,8 +24,7 @@ public class Password implements Serializable {
     }
 
 
-    public boolean checkPassword(String pwd)
-    {
+    public boolean checkPassword(String pwd) {
         if (StringUtils.isBlank(pwd))
             return false;
         return true;
@@ -35,8 +32,7 @@ public class Password implements Serializable {
 
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int hash = 7;
         hash = 7 * hash + this.password.hashCode();
         return hash;

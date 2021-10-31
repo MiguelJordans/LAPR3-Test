@@ -1,14 +1,13 @@
 package lapr.project.model;
 
 public class Position {
-    long latitude [];
-    long longitude [];
-    long heading[];
+    long[] latitude;
+    long[] longitude;
+    long[] heading;
     long sog;
-    long cog[];
+    long[] cog;
 
-
-    public Position(long [] latitude, long longitude[], long heading[] , long sog, long cog[]){
+    public Position(long[] latitude, long longitude[], long heading[], long sog, long cog[]) {
 
         this.latitude = latitude;
         this.longitude = longitude;

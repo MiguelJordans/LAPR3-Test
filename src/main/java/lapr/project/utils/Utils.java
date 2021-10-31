@@ -11,87 +11,69 @@ import java.util.logging.Logger;
 
 public class Utils {
 
-    public static String readLineFromConsole(String prompt)
-    {
-        try
-        {
+    public static String readLineFromConsole(String prompt) {
+        try {
             System.out.println("\n" + prompt);
 
             InputStreamReader converter = new InputStreamReader(System.in);
             BufferedReader in = new BufferedReader(converter);
 
             return in.readLine();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static int readIntegerFromConsole(String prompt)
-    {
-        do
-        {
-            try
-            {
+    public static int readIntegerFromConsole(String prompt) {
+        do {
+            try {
                 String input = readLineFromConsole(prompt);
 
                 return Integer.parseInt(input);
 
-            } catch (NumberFormatException ex)
-            {
+            } catch (NumberFormatException ex) {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
         } while (true);
     }
-    public static long readLongFromConsole(String prompt)
-    {
-        do
-        {
-            try
-            {
+
+    public static long readLongFromConsole(String prompt) {
+        do {
+            try {
                 String input = readLineFromConsole(prompt);
 
                 return Long.parseLong(input);
 
-            } catch (NumberFormatException ex)
-            {
+            } catch (NumberFormatException ex) {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
         } while (true);
     }
 
-    public static double readDoubleFromConsole(String prompt)
-    {
-        do
-        {
-            try
-            {
+    public static double readDoubleFromConsole(String prompt) {
+        do {
+            try {
                 String input = readLineFromConsole(prompt);
 
                 return Double.parseDouble(input);
 
-            } catch (NumberFormatException ex)
-            {
+            } catch (NumberFormatException ex) {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
         } while (true);
     }
 
-    public static Date readDateFromConsole(String prompt)
-    {
-        do
-        {
-            try
-            {
+    public static Date readDateFromConsole(String prompt) {
+        do {
+            try {
                 String strDate = readLineFromConsole(prompt);
 
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
                 return df.parse(strDate);
 
-            } catch (ParseException ex)
-            {
+            } catch (ParseException ex) {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
         } while (true);
@@ -106,23 +88,21 @@ public class Utils {
         return input.equalsIgnoreCase("y");
     }
 
-    public static Object showAndSelectOne(List list, String header)
-    {
-        showList(list,header);
+    public static Object showAndSelectOne(List list, String header) {
+        showList(list, header);
         return selectsObject(list);
     }
-    public static int showAndSelectIndex(List list, String header)
-    {
-        showList(list,header);
+
+    public static int showAndSelectIndex(List list, String header) {
+        showList(list, header);
         return selectsIndex(list);
     }
-    public static void showList(List<MenuItem> list, String header)
-    {
+
+    public static void showList(List<MenuItem> list, String header) {
         System.out.println(header);
 
         int index = 0;
-        for (MenuItem o : list)
-        {
+        for (MenuItem o : list) {
             index++;
 
             System.out.println(index + ". " + o.getDescription());
@@ -131,31 +111,25 @@ public class Utils {
         System.out.println("0 - Cancel");
     }
 
-    public static Object selectsObject(List list)
-    {
+    public static Object selectsObject(List list) {
         String input;
         Integer value;
-        do
-        {
+        do {
             input = Utils.readLineFromConsole("Type your option: ");
-            value =  Integer.valueOf(input);
+            value = Integer.valueOf(input);
         } while (value < 0 || value > list.size());
 
-        if (value == 0)
-        {
+        if (value == 0) {
             return null;
-        } else
-        {
+        } else {
             return list.get(value - 1);
         }
     }
 
-    public static int selectsIndex(List list)
-    {
+    public static int selectsIndex(List list) {
         String input;
         Integer value;
-        do
-        {
+        do {
 
             input = Utils.readLineFromConsole("Type your option: ");
             value = detectNumberFormatException(input);
@@ -164,12 +138,12 @@ public class Utils {
         return value - 1;
     }
 
-    public static Integer detectNumberFormatException(String s){
+    public static Integer detectNumberFormatException(String s) {
         Integer n;
         try {
             n = Integer.valueOf(s);
             return n;
-        }catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             System.out.println("This is not an option!");
             return -2;
         }

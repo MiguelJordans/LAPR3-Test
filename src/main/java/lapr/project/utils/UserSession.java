@@ -1,8 +1,8 @@
 package lapr.project.utils;
 
-
 import java.util.Collections;
 import java.util.List;
+
 public class UserSession {
 
     private User user = null;
@@ -38,8 +38,7 @@ public class UserSession {
         return null;
     }
 
-    public List<UserRoleDTO> getUserRoles()
-    {
+    public List<UserRoleDTO> getUserRoles() {
         if (isLoggedIn()) {
             UserRoleMapper mapper = new UserRoleMapper();
             return mapper.toDTO(this.user.getRoles());

@@ -11,7 +11,6 @@ import java.util.Properties;
 public class App {
 
 
-
     private final Company company;
     private final AuthFacade authFacade;
 
@@ -44,52 +43,43 @@ public class App {
         return props;
     }
 
-    public boolean doLogin(String email, String pwd)
-    {
-        return this.authFacade.doLogin(email,pwd).isLoggedIn();
+    public boolean doLogin(String email, String pwd) {
+        return this.authFacade.doLogin(email, pwd).isLoggedIn();
     }
 
-    public UserSession getCurrentUserSession()
-    {
+    public UserSession getCurrentUserSession() {
         return this.authFacade.getCurrentUserSession();
 
     }
 
-    public void doLogout()
-    {
+    public void doLogout() {
         this.authFacade.doLogout();
     }
 
 
     private void bootstrap() {
 
-
         this.authFacade.addUserRole(Constants.ROLE_CLIENT, Constants.ROLE_CLIENT);
         this.authFacade.addUserRole(Constants.TRAFFIC_MANAGER, Constants.ROLE_TRAFFIC_MANAGER);
 
-        this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.CLIENT,Constants.MODEL_CLASS_PATH+""+Constants.CLIENT));
-        this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.TRAFFIC_MANAGER,Constants.MODEL_CLASS_PATH+""+Constants.TRAFFIC_MANAGER));
-
-
+        this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.CLIENT, Constants.MODEL_CLASS_PATH + "" + Constants.CLIENT));
+        this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.TRAFFIC_MANAGER, Constants.MODEL_CLASS_PATH + "" + Constants.TRAFFIC_MANAGER));
 
         //email: R00001@lei.pt pass: 123
-        Client c1 = new Client(this.company.getOrgRoleStore().getRoleById(Constants.CLIENT),"R00001", "Receptionist1");
-        this.authFacade.addUserWithRole(c1.getName(),c1.getEmail(),"123",Constants.ROLE_CLIENT);
+        Client c1 = new Client(this.company.getOrgRoleStore().getRoleById(Constants.CLIENT), "R00001", "Receptionist1");
+        this.authFacade.addUserWithRole(c1.getName(), c1.getEmail(), "123", Constants.ROLE_CLIENT);
 
         //email: TM00001@lei.pt pass: 495
-        TrafficManager tm1 = new TrafficManager(this.company.getOrgRoleStore().getRoleById(Constants.TRAFFIC_MANAGER),"TM00001","Traffic Manager");
-        this.authFacade.addUserWithRole(tm1.getName(),tm1.getEmail(),"495",Constants.ROLE_TRAFFIC_MANAGER);
+        TrafficManager tm1 = new TrafficManager(this.company.getOrgRoleStore().getRoleById(Constants.TRAFFIC_MANAGER), "TM00001", "Traffic Manager");
+        this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "495", Constants.ROLE_TRAFFIC_MANAGER);
 
     }
 
-
     private static App singleton = null;
-    public static App getInstance()
-    {
-        if(singleton == null)
-        {
-            synchronized(App.class)
-            {
+
+    public static App getInstance() {
+        if (singleton == null) {
+            synchronized (App.class) {
                 singleton = new App();
             }
         }

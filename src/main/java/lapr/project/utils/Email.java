@@ -2,16 +2,14 @@ package lapr.project.utils;
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class Email  implements Serializable {
+public class Email {
 
     private String email;
 
-    public Email(String email)
-    {
+    public Email(String email) {
         if (!validate(email))
             throw new IllegalArgumentException("Invalid Email Address.");
         this.email = email;
@@ -27,9 +25,8 @@ public class Email  implements Serializable {
     }
 
     // Extracted from https://www.geeksforgeeks.org/check-email-address-valid-not-java/
-    private boolean checkFormat(String email)
-    {
-        String emailRegex = "^[a-zA-Z0-9_+&*'-]+(?:\\."+
+    private boolean checkFormat(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*'-]+(?:\\." +
                 "[a-zA-Z0-9_+&*'-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -38,13 +35,12 @@ public class Email  implements Serializable {
         return pat.matcher(email).matches();
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int hash = 7;
         hash = 17 * hash + this.email.hashCode();
         return hash;
@@ -69,8 +65,7 @@ public class Email  implements Serializable {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return String.format("%s", this.email);
     }
 }

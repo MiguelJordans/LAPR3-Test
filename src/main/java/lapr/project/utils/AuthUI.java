@@ -18,7 +18,6 @@ public class AuthUI {
         ctrl = new AuthController();
     }
 
-
     public void run()
     {
         boolean success = doLogin();
@@ -48,8 +47,6 @@ public class AuthUI {
         this.logout();
     }
 
-
-
     private boolean doLogin()
     {
         System.out.println("\nLogin UI:");
@@ -70,7 +67,6 @@ public class AuthUI {
         } while (!success && maxAttempts > 0);
         return success;
     }
-
 
     private List<MenuItem> getMenuItemForRoles()
     {
