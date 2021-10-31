@@ -1,6 +1,8 @@
 package lapr.project.ui;
 
 import lapr.project.model.CalculatorExample;
+import lapr.project.utils.App;
+import lapr.project.utils.AuthUI;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,12 +32,9 @@ class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, SQLException {
-        CalculatorExample calculatorExample = new CalculatorExample();
-        int value = calculatorExample.sum(3, 5);
-
-        if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.log(Level.INFO, String.valueOf(value));
-        }
+        AuthUI authUi = new AuthUI();
+        App app = new App();
+        authUi.run();
     }
 }
 
