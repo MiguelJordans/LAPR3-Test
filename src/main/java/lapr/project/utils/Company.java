@@ -3,11 +3,10 @@ package lapr.project.utils;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 public class Company {
-
     private final AuthFacade authFacade;
     private final OrgRoleStore orgRoleStore;
 
-    public Company(String designation)  {
+    public Company(String designation) {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -22,7 +21,6 @@ public class Company {
     public OrgRoleStore getOrgRoleStore() {
         return this.orgRoleStore;
     }
-
 }
 
 

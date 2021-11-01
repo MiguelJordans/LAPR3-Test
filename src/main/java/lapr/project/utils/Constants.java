@@ -29,5 +29,4 @@ public class Constants {
     public static final String SHIP_CAPTAIN = "Ship_Captain";
     public static final String SHIP_CHIEF_ELECTRICAL_ENGINEER = "Ship_Chief_Electrical_Engineer";
     public static final String TRUCK_DRIVER = "Truck_Driver";
-
 }

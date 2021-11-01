@@ -1,7 +1,6 @@
 package lapr.project.ui;
 
 
-
 import lapr.project.utils.MenuItem;
 import lapr.project.utils.Utils;
 
@@ -15,7 +14,6 @@ public class TrafficManagerUI implements Runnable {
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Pls don't bug", new ShowTextUI("OLA")));
 
-
         int option;
         do {
             option = Utils.showAndSelectIndex(options, "\n\nTraffic Manager Menu:");
@@ -25,7 +23,6 @@ public class TrafficManagerUI implements Runnable {
             }
         }
         while (option != -1);
-
     }
 }
 

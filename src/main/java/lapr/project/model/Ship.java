@@ -1,6 +1,5 @@
 package lapr.project.model;
 
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,10 +23,8 @@ public class Ship {
     Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
 
     public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
-
         checkIMO(imo);
         checkMMSI(mmsi);
-
 
         this.mmsi = mmsi;
         this.name = name;
@@ -41,15 +38,94 @@ public class Ship {
         this.capacity = capacity;
         this.draft = draft;
 
-
-        posDate = new HashMap<>();
-
+        this.posDate = new HashMap<>();
     }
 
-    //checkers
+    //Getters
+    public int getMmsi() {
+        return mmsi;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getImo() {
+        return imo;
+    }
+
+    public int getNumGen() {
+        return numGen;
+    }
+
+    public String getCallSign() {
+        return callSign;
+    }
+
+    public String getVesselType() {
+        return vesselType;
+    }
+
+    public long getLength() {
+        return length;
+    }
+
+    public long getWidth() {
+        return width;
+    }
+
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public long getDraft() {
+        return draft;
+    }
+
+    //Setters
+    public void setMmsi(int mmsi) {
+        this.mmsi = mmsi;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImo(int imo) {
+        this.imo = imo;
+    }
+
+    public void setNumGen(int numGen) {
+        this.numGen = numGen;
+    }
+
+    public void setCallSign(String callSign) {
+        this.callSign = callSign;
+    }
+
+    public void setVesselType(String vesselType) {
+        this.vesselType = vesselType;
+    }
+
+    public void setLength(long length) {
+        this.length = length;
+    }
+
+    public void setWidth(long width) {
+        this.width = width;
+    }
+
+    public void setCapacity(long capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setDraft(long draft) {
+        this.draft = draft;
+    }
+
+
+    //Checks
     public boolean checkMMSI(int mmsi) {
-
         if (mmsi < 100000000 || mmsi > 999999999) {
             throw new IllegalArgumentException("MMSI code must have 9 digits!");
         }
@@ -57,93 +133,9 @@ public class Ship {
     }
 
     public boolean checkIMO(int imo) {
-
         if (imo < 1000000 || imo > 9999999) {
             throw new IllegalArgumentException("IMO code must have 7 digits!");
         }
         return true;
     }
-
-    //getters and setters
-
-    public int getMmsi() {
-        return mmsi;
-    }
-
-    public void setMmsi(int mmsi) {
-        this.mmsi = mmsi;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getImo() {
-        return imo;
-    }
-
-    public void setImo(int imo) {
-        this.imo = imo;
-    }
-
-    public int getNumGen() {
-        return numGen;
-    }
-
-    public void setNumGen(int numGen) {
-        this.numGen = numGen;
-    }
-
-    public String getCallSign() {
-        return callSign;
-    }
-
-    public void setCallSign(String callSign) {
-        this.callSign = callSign;
-    }
-
-    public String getVesselType() {
-        return vesselType;
-    }
-
-    public void setVesselType(String vesselType) {
-        this.vesselType = vesselType;
-    }
-
-    public long getLength() {
-        return length;
-    }
-
-    public void setLength(long length) {
-        this.length = length;
-    }
-
-    public long getWidth() {
-        return width;
-    }
-
-    public void setWidth(long width) {
-        this.width = width;
-    }
-
-    public long getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(long capacity) {
-        this.capacity = capacity;
-    }
-
-    public long getDraft() {
-        return draft;
-    }
-
-    public void setDraft(long draft) {
-        this.draft = draft;
-    }
-
 }

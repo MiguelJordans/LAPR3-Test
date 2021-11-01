@@ -15,6 +15,46 @@ public class Facility {
         this.location = location;
     }
 
+    public String getIdentification() {
+        return identification;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,45 +80,5 @@ public class Facility {
         result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
         result = 31 * result + (getLocation() != null ? getLocation().hashCode() : 0);
         return result;
-    }
-
-    public String getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContinent() {
-        return continent;
-    }
-
-    public void setContinent(String continent) {
-        this.continent = continent;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
 }

@@ -12,17 +12,15 @@ public class Container {
     private String isoCode;
 
     public Container(String identification, int payload, int tare, int gross, String isoCode) {
-
         this.identification = identification;
         this.payload = payload;
         this.tare = tare;
         this.gross = gross;
         this.isoCode = isoCode;
-
     }
 
-    public int getGross() {
-        return gross;
+    public String getIdentification() {
+        return identification;
     }
 
     public int getPayload() {
@@ -33,24 +31,16 @@ public class Container {
         return tare;
     }
 
-    public String getIdentification() {
-        return identification;
+    public int getGross() {
+        return gross;
     }
 
     public String getIsoCode() {
         return isoCode;
     }
 
-    public void setGross(int gross) {
-        this.gross = gross;
-    }
-
     public void setIdentification(String identification) {
         this.identification = identification;
-    }
-
-    public void setIsoCode(String isoCode) {
-        this.isoCode = isoCode;
     }
 
     public void setPayload(int payload) {
@@ -59,6 +49,14 @@ public class Container {
 
     public void setTare(int tare) {
         this.tare = tare;
+    }
+
+    public void setGross(int gross) {
+        this.gross = gross;
+    }
+
+    public void setIsoCode(String isoCode) {
+        this.isoCode = isoCode;
     }
 
     @Override
