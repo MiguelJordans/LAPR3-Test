@@ -1,16 +1,14 @@
 package lapr.project.model;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.testng.Assert;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ContainerTest {
 
-    Container containerReal = new Container("20BD",1000,1000,100,"20RF");
+    Container containerReal = new Container("20BD", 1000, 1000, 100, "20RF");
 
-    Container containerEqualsTrue = new Container("20BD",1000,1000,100,"20RF");
+    Container containerEqualsTrue = new Container("20BD", 1000, 1000, 100, "20RF");
 
     @Test
     void getGross() {
@@ -19,7 +17,7 @@ class ContainerTest {
         //Act
         int actual = containerReal.getGross();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
 
     }
 
@@ -30,7 +28,7 @@ class ContainerTest {
         //Act
         int actual = containerReal.getPayload();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -40,7 +38,7 @@ class ContainerTest {
         //Act
         int actual = containerReal.getTare();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -50,7 +48,7 @@ class ContainerTest {
         //Act
         String actual = containerReal.getIdentification();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -60,7 +58,7 @@ class ContainerTest {
         //Act
         String actual = containerReal.getIsoCode();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -71,7 +69,7 @@ class ContainerTest {
         containerReal.setGross(expected);
         int actual = containerReal.getGross();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -82,7 +80,7 @@ class ContainerTest {
         containerReal.setIdentification(expected);
         String actual = containerReal.getIdentification();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -93,7 +91,7 @@ class ContainerTest {
         containerReal.setIsoCode(expected);
         String actual = containerReal.getIsoCode();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -104,7 +102,7 @@ class ContainerTest {
         containerReal.setPayload(expected);
         int actual = containerReal.getPayload();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -115,7 +113,7 @@ class ContainerTest {
         containerReal.setTare(expected);
         int actual = containerReal.getTare();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -125,7 +123,7 @@ class ContainerTest {
         //Act
         String actual = containerReal.toString();
         //Assert
-        Assert.assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -134,6 +132,6 @@ class ContainerTest {
         //Act
         boolean actual = containerReal.equals(containerEqualsTrue);
         //Assert
-        Assert.assertEquals(actual, true);
+        assertEquals(actual, true);
     }
 }

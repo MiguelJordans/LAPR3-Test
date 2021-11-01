@@ -1,6 +1,6 @@
 package lapr.project.utils;
 
-import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
