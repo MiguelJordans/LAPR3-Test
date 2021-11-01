@@ -1,11 +1,5 @@
 package lapr.project.ui;
 
-
-<<<<<<< HEAD
-
-=======
-import lapr.project.utils.MenuItem;
->>>>>>> 4e6f34017a297fcd12ad0f1da2c2ee196daa9129
 import lapr.project.utils.Utils;
 
 import java.util.ArrayList;

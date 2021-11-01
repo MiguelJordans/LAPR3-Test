@@ -1,7 +1,6 @@
 package lapr.project.shared;
 
 public class Constants {
-<<<<<<< HEAD
 
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
@@ -30,11 +29,8 @@ public class Constants {
     public static final String SHIP_CAPTAIN = "Ship_Captain";
     public static final String SHIP_CHIEF_ELECTRICAL_ENGINEER = "Ship_Chief_Electrical_Engineer";
     public static final String TRUCK_DRIVER = "Truck_Driver";
-}
-=======
-    private Constants() {
-    }
+
     public static final double MAX_LATITUDE = 90;
     public static final double MAX_LONGITUDE = 180;
 }
->>>>>>> 4e6f34017a297fcd12ad0f1da2c2ee196daa9129
+
