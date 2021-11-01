@@ -5,48 +5,44 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Date;
-
-public class PositionTest {
+class PositionTest {
 
 
-
-
-    Position posgeral = new Position(0,0,0,1,0);
+    Position posgeral = new Position(0, 0, 0, 1, 0);
 
     @Test
-    public void getLatitudeTest() {
+    void getLatitudeTest() {
         //Arrange
         //Act
         //Assert
-        assertEquals(0,posgeral.getLatitude());
+        assertEquals(0, posgeral.getLatitude());
 
     }
 
     @Test
-    public void setLatitudeTest() {
+    void setLatitudeTest() {
 
         //Arrange
         //Act
         posgeral.setLatitude(1);
 
         //Assert
-        assertEquals(1,posgeral.getLatitude());
+        assertEquals(1, posgeral.getLatitude());
 
     }
 
     @Test
-    public void getLongitudeTest() {
+    void getLongitudeTest() {
 
         //Arrange
         //Act
         //Assert
-        assertEquals(0,posgeral.getLongitude());
+        assertEquals(0, posgeral.getLongitude());
 
     }
 
     @Test
-    public void setLongitudeTest() {
+    void setLongitudeTest() {
 
         //Arrange
         //Act
@@ -58,71 +54,70 @@ public class PositionTest {
     }
 
     @Test
-    public void getHeadingTest() {
+    void getHeadingTest() {
 
         //Arrange
         //Act
         //Assert
-        assertEquals(0,posgeral.getHeading());
+        assertEquals(0, posgeral.getHeading());
     }
 
     @Test
-    public void setHeadingTest() {
+    void setHeadingTest() {
 
         //Arrange
         //Act
         posgeral.setHeading(1);
         //Assert
-        assertEquals(1,posgeral.getHeading());
+        assertEquals(1, posgeral.getHeading());
     }
 
     @Test
-    public void getSogTest() {
+    void getSogTest() {
 
         //Arrange
         //Act
         //Assert
-        assertEquals(1,posgeral.getSog());
+        assertEquals(1, posgeral.getSog());
 
     }
 
     @Test
-    public void setSogTest() {
+    void setSogTest() {
         //Arrange
         //Act
         posgeral.setSog(2);
         //Assert
-        assertEquals(2,posgeral.getSog());
+        assertEquals(2, posgeral.getSog());
     }
 
     @Test
-    public void getCogTest() {
+    void getCogTest() {
         //Arrange
         //Act
         //Assert
-        assertEquals(0,posgeral.getCog());
+        assertEquals(0, posgeral.getCog());
     }
 
     @Test
-    public void setCogTest() {
+    void setCogTest() {
 
         //Arrange
         //Act
         posgeral.setCog(1);
         //Assert
-        assertEquals(1,posgeral.getCog());
+        assertEquals(1, posgeral.getCog());
     }
 
 
     @Test
-    public void toStringTest(){
+    void toStringTest() {
 
         //Arrange
         String expected = "Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}";
 
         //Act
         //Assert
-        System.out.println(posgeral.toString());
-        assertEquals(expected,posgeral.toString());
+        assertEquals(expected, posgeral.toString());
     }
 }
