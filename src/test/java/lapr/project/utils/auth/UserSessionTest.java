@@ -1,8 +1,5 @@
 package lapr.project.utils.auth;
 
-import lapr.project.utils.auth.domain.Email;
-import lapr.project.utils.auth.domain.Password;
-import lapr.project.utils.auth.domain.User;
 import lapr.project.utils.auth.domain.UserRole;
 import lapr.project.utils.auth.mappers.UserRoleMapper;
 import lapr.project.utils.auth.mappers.dto.UserRoleDTO;
@@ -114,8 +111,11 @@ class UserSessionTest {
         //Arrange
         UserRoleMapper mapper = new UserRoleMapper();
         List<UserRoleDTO> userRoleDTOS = new ArrayList<>();
-        userRoleDTOS.add(mapper.toDTO(new UserRole(role,description)));
+        userRoleDTOS.add(mapper.toDTO(new UserRole(role, description)));
         UserRoleDTO expected = userRoleDTOS.get(0);
+        authFacade.addUserRole(role, description);
+        authFacade.addUserWithRole(name, email, password, role);
+        authFacade.doLogin(email, password);
         //Act
         List<UserRoleDTO> userRoleDTOS1 = authFacade.getCurrentUserSession().getUserRoles();
         UserRoleDTO actual = userRoleDTOS1.get(0);
@@ -128,7 +128,7 @@ class UserSessionTest {
         //Arrange
         UserRoleMapper mapper = new UserRoleMapper();
         List<UserRoleDTO> expected = new ArrayList<>();
-        expected.add(mapper.toDTO(new UserRole(role,description)));
+        expected.add(mapper.toDTO(new UserRole(role, description)));
         //Act
         authFacade.doLogout();
         List<UserRoleDTO> actual = authFacade.getCurrentUserSession().getUserRoles();
