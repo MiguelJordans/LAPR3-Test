@@ -1,5 +1,7 @@
 package lapr.project.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Facility {
     private String identification;
     private String name;
@@ -8,6 +10,7 @@ public class Facility {
     private FacilityLocation location;
 
     public Facility(String identification, String name, String continent, String country, FacilityLocation location) {
+        if (!checkId(identification)) throw new IllegalArgumentException("Invalid Identification");
         this.identification = identification;
         this.name = name;
         this.continent = continent;
@@ -32,6 +35,10 @@ public class Facility {
         result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
         result = 31 * result + (getLocation() != null ? getLocation().hashCode() : 0);
         return result;
+    }
+
+    public boolean checkId(String id){
+        return StringUtils.isNumeric(id) && id.length()==5;
     }
 
     public String getIdentification() {
