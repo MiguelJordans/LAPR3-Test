@@ -1,4 +1,4 @@
-package lapr.project.utils;
+package lapr.project.ui;
 
 import org.apache.commons.lang3.StringUtils;
 

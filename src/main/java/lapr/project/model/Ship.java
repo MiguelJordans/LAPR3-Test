@@ -138,4 +138,22 @@ public class Ship {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "mmsi=" + mmsi +
+                ", name='" + name + '\'' +
+                ", imo=" + imo +
+                ", numGen=" + numGen +
+                ", genPowerOutput=" + genPowerOutput +
+                ", callSign='" + callSign + '\'' +
+                ", vesselType='" + vesselType + '\'' +
+                ", length=" + length +
+                ", width=" + width +
+                ", capacity=" + capacity +
+                ", draft=" + draft +
+                ", posDate=" + posDate +
+                '}';
+    }
 }

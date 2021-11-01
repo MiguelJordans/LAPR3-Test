@@ -1,7 +1,4 @@
-package lapr.project.ui;
-
-import lapr.project.utils.Employee;
-import lapr.project.utils.OrgRole;
+package lapr.project.model;
 
 public class TrafficManager extends Employee {
 

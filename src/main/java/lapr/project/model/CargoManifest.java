@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
-//Vai ser preciso implementar métodos que demos na PL1 de ESINF para percorrer os HASHMAPS 
+//Vai ser preciso implementar métodos que demos na PL1 de ESINF para percorrer os HASHMAPS
 
 public class CargoManifest {
 

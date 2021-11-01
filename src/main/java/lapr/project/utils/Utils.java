@@ -1,5 +1,7 @@
 package lapr.project.utils;
 
+import lapr.project.ui.MenuItem;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.ParseException;

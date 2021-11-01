@@ -1,5 +1,7 @@
-package lapr.project.utils;
+package lapr.project.model.stores;
 
+
+import lapr.project.model.OrgRole;
 
 import java.util.ArrayList;
 import java.util.Iterator;

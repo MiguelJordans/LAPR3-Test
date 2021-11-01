@@ -1,6 +1,11 @@
-package lapr.project.utils;
+package lapr.project.utils.auth;
 
 
+
+import lapr.project.utils.auth.domain.User;
+import lapr.project.utils.auth.domain.UserRole;
+import lapr.project.utils.auth.domain.store.UserRoleStore;
+import lapr.project.utils.auth.domain.store.UserStore;
 
 import java.util.Optional;
 

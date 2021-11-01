@@ -1,4 +1,4 @@
-package lapr.project.utils;
+package lapr.project.utils.auth.domain;
 
 import org.apache.commons.lang3.StringUtils;
 
