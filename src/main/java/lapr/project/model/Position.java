@@ -1,14 +1,13 @@
 package lapr.project.model;
 
 public class Position {
-    long latitude [];
-    long longitude [];
-    long heading[];
+    long[] latitude;
+    long[] longitude;
+    long[] heading;
     long sog;
-    long cog[];
+    long[] cog;
 
-
-    public Position(long [] latitude, long longitude[], long heading[] , long sog, long cog[]){
+    public Position(long[] latitude, long longitude[], long heading[], long sog, long cog[]) {
 
         this.latitude = latitude;
         this.longitude = longitude;
@@ -17,7 +16,6 @@ public class Position {
         this.cog = cog;
 
     }
-
 
     //Getters and Setters
     public long getLatitude(int i) {
@@ -51,7 +49,6 @@ public class Position {
     public void setSog(long sog) {
         this.sog = sog;
     }
-
 
     public long getCog(int i) {
         return cog[i];

@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class Ship {
 
-
     //dados estaticos
     int mmsi;
     String name;
@@ -21,17 +20,10 @@ public class Ship {
     long capacity;
     long draft;
 
-
-
     //dados dinamicos
-    Map<Date,Position> posDate; // DateTime is the key, which will save the specific position of its time.
+    Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
 
-
-
-
-
-
-    public Ship(int mmsi, String name,int imo, int numGen, long genPowerOutput,String callSign,String vesselType,  long length, long width, long capacity, long draft){
+    public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
 
         checkIMO(imo);
         checkMMSI(mmsi);
@@ -52,32 +44,25 @@ public class Ship {
 
         posDate = new HashMap<>();
 
-
-
     }
 
     //checkers
 
+    public boolean checkMMSI(int mmsi) {
 
-    public boolean checkMMSI(int mmsi){
-
-        if(mmsi < 100000000 || mmsi > 999999999){
+        if (mmsi < 100000000 || mmsi > 999999999) {
             throw new IllegalArgumentException("MMSI code must have 9 digits!");
         }
         return true;
     }
 
+    public boolean checkIMO(int imo) {
 
-    public boolean checkIMO(int imo){
-
-        if(imo < 1000000 || imo > 9999999){
+        if (imo < 1000000 || imo > 9999999) {
             throw new IllegalArgumentException("IMO code must have 7 digits!");
         }
         return true;
     }
-
-
-
 
     //getters and setters
 
@@ -160,8 +145,5 @@ public class Ship {
     public void setDraft(long draft) {
         this.draft = draft;
     }
-
-
-
 
 }

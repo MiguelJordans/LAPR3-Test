@@ -1,11 +1,8 @@
 package lapr.project.utils;
 
-
-import java.io.Serializable;
 import java.util.Objects;
 
-public class OrgRole implements Serializable {
-
+public class OrgRole  {
 
     private String id;
 
@@ -18,8 +15,6 @@ public class OrgRole implements Serializable {
         this.designation = designation;
         this.id = id;
     }
-
-
 
     public String getDesignation() {
         return designation;

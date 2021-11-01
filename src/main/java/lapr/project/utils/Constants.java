@@ -2,8 +2,6 @@ package lapr.project.utils;
 
 public class Constants {
 
-
-
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
     public static final String MODEL_CLASS_PATH = "auth.domain.model";
@@ -31,9 +29,5 @@ public class Constants {
     public static final String SHIP_CAPTAIN = "Ship_Captain";
     public static final String SHIP_CHIEF_ELECTRICAL_ENGINEER = "Ship_Chief_Electrical_Engineer";
     public static final String TRUCK_DRIVER = "Truck_Driver";
-
-
-
-
 
 }

@@ -1,6 +1,5 @@
 package lapr.project.utils;
 
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
@@ -37,8 +36,8 @@ public class UserStore {
                 return Optional.empty();
             }
 
-            user = (User)var2.next();
-        } while(!user.hasId(email));
+            user = (User) var2.next();
+        } while (!user.hasId(email));
 
         return Optional.of(user);
     }

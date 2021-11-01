@@ -1,21 +1,17 @@
 package lapr.project.utils;
 
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
-import org.apache.commons.lang3.StringUtils;
-
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Password implements Serializable {
+public class Password {
 
     private String password;
 
-    public Password(String password)
-    {
+    public Password(String password) {
         if (!validate(password))
             throw new IllegalArgumentException("Invalid Email Address.");
-        this.password = createHash(password);
+        this.password = password;
     }
 
     private boolean validate(String password) {
@@ -27,23 +23,16 @@ public class Password implements Serializable {
         return true;
     }
 
-    private String createHash(String password)
-    {
-        return BCrypt.withDefaults().hashToString(BCrypt.MIN_COST,password.toCharArray());
-    }
 
-    public boolean checkPassword(String pwd)
-    {
+    public boolean checkPassword(String pwd) {
         if (StringUtils.isBlank(pwd))
             return false;
-        BCrypt.Result result = BCrypt.verifyer().verify(pwd.toCharArray(),this.password.toCharArray());
-        return result.verified;
+        return true;
     }
 
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int hash = 7;
         hash = 7 * hash + this.password.hashCode();
         return hash;

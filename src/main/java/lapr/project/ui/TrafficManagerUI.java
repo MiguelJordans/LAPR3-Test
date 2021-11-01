@@ -10,7 +10,6 @@ import java.util.List;
 
 public class TrafficManagerUI implements Runnable {
 
-
     public void run() {
 
         List<MenuItem> options = new ArrayList<>();

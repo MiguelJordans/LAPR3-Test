@@ -36,8 +36,8 @@ public class OrgRoleStore {
                 throw new IllegalArgumentException("There is no Organization Role with that Id.");
             }
 
-            role = (OrgRole)var2.next();
-        } while(!role.getId().equals(id));
+            role = (OrgRole) var2.next();
+        } while (!role.getId().equals(id));
 
         return role;
     }
