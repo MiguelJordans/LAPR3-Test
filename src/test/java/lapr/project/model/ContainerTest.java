@@ -3,6 +3,7 @@ package lapr.project.model;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ContainerTest {
 
@@ -132,6 +133,13 @@ class ContainerTest {
         //Act
         boolean actual = containerReal.equals(containerEqualsTrue);
         //Assert
-        assertEquals(actual, true);
+        assertTrue(actual);
+    }
+
+    @Test
+    void testHashCode() {
+        Container container = new Container("20BD", 1000, 1000, 100, "20RF");
+        int expected = -1390046803;
+        assertEquals(expected, container.hashCode());
     }
 }
