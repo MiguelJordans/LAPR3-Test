@@ -3,13 +3,13 @@ package lapr.project.model;
 import java.util.Arrays;
 
 public class Position {
-    long[] latitude;
-    long[] longitude;
-    long[] heading;
+    long latitude;
+    long longitude;
+    long heading;
     long sog;
-    long[] cog;
+    long cog;
 
-    public Position(long[] latitude, long[] longitude, long[] heading, long sog, long[] cog) {
+    public Position(long latitude, long longitude, long heading, long sog, long cog) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.heading = heading;
@@ -17,35 +17,35 @@ public class Position {
         this.cog = cog;
     }
 
-    public long getLatitude(int i) {
-        return latitude[i];
+    public long getLatitude() {
+        return latitude;
     }
 
-    public long getLongitude(int i) {
-        return longitude[i];
+    public long getLongitude() {
+        return longitude;
     }
 
-    public long getHeading(int i) {
-        return heading[i];
+    public long getHeading() {
+        return heading;
     }
 
     public long getSog() {
         return sog;
     }
 
-    public long getCog(int i) {
-        return cog[i];
+    public long getCog() {
+        return cog;
     }
 
-    public void setLatitude(long[] latitude) {
+    public void setLatitude(long latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(long[] longitude) {
+    public void setLongitude(long longitude) {
         this.longitude = longitude;
     }
 
-    public void setHeading(long[] heading) {
+    public void setHeading(long heading) {
         this.heading = heading;
     }
 
@@ -53,18 +53,18 @@ public class Position {
         this.sog = sog;
     }
 
-    public void setCog(long[] cog) {
+    public void setCog(long cog) {
         this.cog = cog;
     }
 
     @Override
     public String toString() {
         return "Position{" +
-                "latitude=" + Arrays.toString(latitude) +
-                ", longitude=" + Arrays.toString(longitude) +
-                ", heading=" + Arrays.toString(heading) +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", heading=" + heading +
                 ", sog=" + sog +
-                ", cog=" + Arrays.toString(cog) +
+                ", cog=" + cog +
                 '}';
     }
 }

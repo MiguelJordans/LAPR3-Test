@@ -9,35 +9,29 @@ import java.util.Date;
 
 public class PositionTest {
 
-    long[] latitude = {0,0};
-    long[] longitude = {0,0};
-    long[] heading = {0,0};
-    long[] cog = {0,0};
 
 
-    Position posgeral = new Position(latitude,longitude,heading,1,cog);
+
+    Position posgeral = new Position(0,0,0,1,0);
 
     @Test
     public void getLatitudeTest() {
         //Arrange
-        long[] latitude = {0,0};
         //Act
         //Assert
-        assertEquals(latitude[0],posgeral.getLatitude(0));
-        assertEquals(latitude[1],posgeral.getLatitude(1));
+        assertEquals(0,posgeral.getLatitude());
+
     }
 
     @Test
     public void setLatitudeTest() {
 
         //Arrange
-        long [] latitude = {1,1};
         //Act
-        posgeral.setLatitude(latitude);
+        posgeral.setLatitude(1);
 
         //Assert
-        assertEquals(latitude[0],posgeral.getLatitude(0));
-        assertEquals(latitude[1],posgeral.getLatitude(1));
+        assertEquals(1,posgeral.getLatitude());
 
     }
 
@@ -45,26 +39,21 @@ public class PositionTest {
     public void getLongitudeTest() {
 
         //Arrange
-        long [] longitude = {0,0};
-
-
         //Act
         //Assert
-        assertEquals(longitude[0],posgeral.getLongitude(0));
-        assertEquals(longitude[1],posgeral.getLongitude(1));
+        assertEquals(0,posgeral.getLongitude());
+
     }
 
     @Test
     public void setLongitudeTest() {
 
         //Arrange
-        long [] longitude = {1,1};
         //Act
-        posgeral.setLongitude(longitude);
+        posgeral.setLongitude(1);
 
         //Assert
-        assertEquals(longitude[0], posgeral.getLongitude(0));
-        assertEquals(longitude[1], posgeral.getLongitude(1));
+        assertEquals(1, posgeral.getLongitude());
 
     }
 
@@ -72,24 +61,19 @@ public class PositionTest {
     public void getHeadingTest() {
 
         //Arrange
-        long [] heading = {0,0};
-
         //Act
         //Assert
-        assertEquals(heading[0],posgeral.getHeading(0));
-        assertEquals(heading[1],posgeral.getHeading(1));
+        assertEquals(0,posgeral.getHeading());
     }
 
     @Test
     public void setHeadingTest() {
 
         //Arrange
-        long[ ] heading = {1,1};
         //Act
-        posgeral.setHeading(heading);
+        posgeral.setHeading(1);
         //Assert
-        assertEquals(heading[0],posgeral.getHeading(0));
-        assertEquals(heading[1],posgeral.getHeading(1));
+        assertEquals(1,posgeral.getHeading());
     }
 
     @Test
@@ -114,24 +98,19 @@ public class PositionTest {
     @Test
     public void getCogTest() {
         //Arrange
-        long[] cog = {0,0};
-
         //Act
         //Assert
-        assertEquals(cog[0],posgeral.getCog(0));
-        assertEquals(cog[0],posgeral.getCog(0));
+        assertEquals(0,posgeral.getCog());
     }
 
     @Test
     public void setCogTest() {
 
         //Arrange
-        long[] cog = {1,1};
         //Act
-        posgeral.setCog(cog);
+        posgeral.setCog(1);
         //Assert
-        assertEquals(cog[0],posgeral.getCog(0));
-        assertEquals(cog[1],posgeral.getCog(1));
+        assertEquals(1,posgeral.getCog());
     }
 
 
@@ -139,10 +118,11 @@ public class PositionTest {
     public void toStringTest(){
 
         //Arrange
-        String expected = "Position{latitude=[0, 0], longitude=[0, 0], heading=[0, 0], sog=1, cog=[0, 0]}";
+        String expected = "Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}";
 
         //Act
         //Assert
+        System.out.println(posgeral.toString());
         assertEquals(expected,posgeral.toString());
     }
 }
