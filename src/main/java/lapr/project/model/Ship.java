@@ -187,4 +187,9 @@ public class Ship implements Comparable<Ship> {
                 ", posDate=" + posDate +
                 '}';
     }
+
+    @Override
+    public int compareTo(Ship o) {
+        return 0;
+    }
 }
