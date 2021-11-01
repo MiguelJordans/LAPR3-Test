@@ -17,4 +17,12 @@ public class UserRoleDTO {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return "UserRoleDTO{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
