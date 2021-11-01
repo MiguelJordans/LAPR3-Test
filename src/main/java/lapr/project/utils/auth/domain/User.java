@@ -1,7 +1,7 @@
 package lapr.project.utils.auth.domain;
 
-import org.apache.maven.surefire.shade.org.apache.commons.lang3.ObjectUtils;
-import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 

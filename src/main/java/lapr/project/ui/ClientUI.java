@@ -6,14 +6,11 @@ import lapr.project.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientUI implements Runnable{
-
+public class ClientUI implements Runnable {
 
     public void run() {
-
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Pls don't bug", new ShowTextUI("OLA")));
-
 
         int option;
         do {
@@ -24,6 +21,5 @@ public class ClientUI implements Runnable{
             }
         }
         while (option != -1);
-
     }
 }

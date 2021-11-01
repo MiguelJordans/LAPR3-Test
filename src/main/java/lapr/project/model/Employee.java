@@ -8,7 +8,6 @@ public class Employee {
     private String name;
 
     public Employee(OrgRole role, String employeeId, String name) {
-
         this.employeeId = employeeId;
         this.role = role;
         this.name = name;
