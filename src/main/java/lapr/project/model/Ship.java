@@ -1,8 +1,7 @@
 package lapr.project.model;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Ship {
 
@@ -20,7 +19,7 @@ public class Ship {
     long draft;
 
     //dados dinamicos
-    Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
+    Map<LocalDateTime, Position> posDate; // DateTime is the key, which will save the specific position of its time.
 
     public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
         checkIMO(imo);
@@ -82,6 +81,15 @@ public class Ship {
         return draft;
     }
 
+    public long getGenPowerOutput() {
+        return genPowerOutput;
+    }
+
+    public Map<LocalDateTime, Position> getPosDate() {
+        return posDate;
+    }
+
+
     //Setters
     public void setMmsi(int mmsi) {
         this.mmsi = mmsi;
@@ -123,6 +131,10 @@ public class Ship {
         this.draft = draft;
     }
 
+    public void setGenPowerOutput(long genPowerOutput) {
+        this.genPowerOutput = genPowerOutput;
+    }
+
 
     //Checks
     public boolean checkMMSI(int mmsi) {
@@ -138,6 +150,23 @@ public class Ship {
         }
         return true;
     }
+
+    public void organizeDatePos() {
+
+        this.posDate = new TreeMap<>(posDate);
+    }
+
+    public String writeAllPos() {
+
+        String positionalMessage = new String();
+
+        for (LocalDateTime dateTime : posDate.keySet()) {
+            positionalMessage = positionalMessage + "" + dateTime + ": " + posDate.get(dateTime).toString();
+        }
+
+        return positionalMessage;
+    }
+
 
     @Override
     public String toString() {
