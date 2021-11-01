@@ -41,7 +41,6 @@ class FileUtilsTest {
 
     @Test
     void oneLineReadTest() throws IOException {
-
         //Arrange
         String expected = "Olá!";
         fillFile(expected);

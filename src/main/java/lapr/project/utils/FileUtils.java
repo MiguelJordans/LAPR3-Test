@@ -24,6 +24,7 @@ public class FileUtils {
         return result;
     }
 
+
     public static void write(Path File,String string) throws IOException {
         try (FileWriter wr = new FileWriter(String.valueOf(File))) {
             wr.append(string);
