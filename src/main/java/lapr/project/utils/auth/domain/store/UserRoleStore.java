@@ -1,4 +1,6 @@
-package lapr.project.utils;
+package lapr.project.utils.auth.domain.store;
+
+import lapr.project.utils.auth.domain.UserRole;
 
 import java.util.HashSet;
 import java.util.Optional;

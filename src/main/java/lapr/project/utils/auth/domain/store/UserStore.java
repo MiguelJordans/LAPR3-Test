@@ -1,4 +1,8 @@
-package lapr.project.utils;
+package lapr.project.utils.auth.domain.store;
+
+import lapr.project.utils.auth.domain.Email;
+import lapr.project.utils.auth.domain.Password;
+import lapr.project.utils.auth.domain.User;
 
 import java.util.HashSet;
 import java.util.Iterator;

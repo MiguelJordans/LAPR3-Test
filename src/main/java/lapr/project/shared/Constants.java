@@ -1,4 +1,4 @@
-package lapr.project.utils;
+package lapr.project.shared;
 
 public class Constants {
 

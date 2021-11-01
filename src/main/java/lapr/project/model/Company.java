@@ -1,5 +1,7 @@
-package lapr.project.utils;
+package lapr.project.model;
 
+import lapr.project.model.stores.OrgRoleStore;
+import lapr.project.utils.auth.AuthFacade;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 public class Company {

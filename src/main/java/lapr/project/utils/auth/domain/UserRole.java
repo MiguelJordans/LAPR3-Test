@@ -1,8 +1,7 @@
-package lapr.project.utils;
+package lapr.project.utils.auth.domain;
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 public class UserRole {

@@ -1,4 +1,4 @@
-package lapr.project.utils;
+package lapr.project.utils.auth.mappers.dto;
 
 public class UserRoleDTO {
 

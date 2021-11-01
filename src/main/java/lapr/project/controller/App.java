@@ -1,7 +1,13 @@
-package lapr.project.utils;
+package lapr.project.controller;
 
 
-import lapr.project.ui.TrafficManager;
+import lapr.project.model.Client;
+import lapr.project.model.Company;
+import lapr.project.model.TrafficManager;
+import lapr.project.utils.auth.AuthFacade;
+import lapr.project.shared.Constants;
+import lapr.project.model.OrgRole;
+import lapr.project.utils.auth.UserSession;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,7 +35,7 @@ public class App {
         Properties props = new Properties();
 
         // Add default properties and values
-        props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, "Many Labs");
+        props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, "CargoShipping");
 
 
         // Read configured values
