@@ -1,5 +1,7 @@
 package lapr.project.model;
 
+import java.util.Arrays;
+
 public class Position {
     long[] latitude;
     long[] longitude;
@@ -53,6 +55,17 @@ public class Position {
 
     public void setCog(long[] cog) {
         this.cog = cog;
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "latitude=" + Arrays.toString(latitude) +
+                ", longitude=" + Arrays.toString(longitude) +
+                ", heading=" + Arrays.toString(heading) +
+                ", sog=" + sog +
+                ", cog=" + Arrays.toString(cog) +
+                '}';
     }
 }
 
