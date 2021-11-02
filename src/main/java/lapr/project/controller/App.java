@@ -91,4 +91,8 @@ public class App {
         }
         return singleton;
     }
+
+    public AuthFacade getAuthFacade() {
+        return authFacade;
+    }
 }

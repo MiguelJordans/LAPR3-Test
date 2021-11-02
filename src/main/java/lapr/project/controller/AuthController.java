@@ -39,5 +39,9 @@ public class AuthController {
     {
         this.app.doLogout();
     }
+
+    public App getApp() {
+        return app;
+    }
 }
 
