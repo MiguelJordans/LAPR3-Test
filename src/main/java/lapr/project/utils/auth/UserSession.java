@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserSession {
 
-    private User user = null;
+    private User user;
 
     public UserSession() {
         this.user = null;

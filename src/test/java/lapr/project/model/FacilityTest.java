@@ -1,7 +1,6 @@
 package lapr.project.model;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class FacilityTest {
@@ -24,24 +23,22 @@ class FacilityTest {
 
     @Test
     void facilityTestWrongIDLetters() {
-
         assertThrows(IllegalArgumentException.class, () -> {
             Facility facility = new Facility("29a02", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
         });
-
     }
 
     @Test
     void testEquals() {
         Facility facility1 = new Facility("29002", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
         Facility facility2 = new Facility("29002", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
-        assertTrue(facility1.equals(facility2));
+        assertEquals(facility1, facility2);
     }
 
     @Test
     void testEqualsSameObject() {
         Facility facility1 = new Facility("29002", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
-        assertTrue(facility1.equals(facility1));
+        assertEquals(facility1, facility1);
     }
 
     @Test
@@ -55,7 +52,7 @@ class FacilityTest {
     void testNotEquals() {
         Facility facility1 = new Facility("29002", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
         Facility facility2 = new Facility("29012", "Liverpool", "Europe", "United Kingdom", new FacilityLocation(53.46666667, -3.033333333));
-        assertFalse(facility1.equals(facility2));
+        assertNotEquals(facility1, facility2);
     }
 
     @Test

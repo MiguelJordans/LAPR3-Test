@@ -27,69 +27,6 @@ public class Utils {
         }
     }
 
-    public static int readIntegerFromConsole(String prompt) {
-        do {
-            try {
-                String input = readLineFromConsole(prompt);
-
-                return Integer.parseInt(input);
-
-            } catch (NumberFormatException ex) {
-                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } while (true);
-    }
-
-    public static long readLongFromConsole(String prompt) {
-        do {
-            try {
-                String input = readLineFromConsole(prompt);
-
-                return Long.parseLong(input);
-
-            } catch (NumberFormatException ex) {
-                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } while (true);
-    }
-
-    public static double readDoubleFromConsole(String prompt) {
-        do {
-            try {
-                String input = readLineFromConsole(prompt);
-
-                return Double.parseDouble(input);
-
-            } catch (NumberFormatException ex) {
-                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } while (true);
-    }
-
-    public static Date readDateFromConsole(String prompt) {
-        do {
-            try {
-                String strDate = readLineFromConsole(prompt);
-
-                SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-
-                return df.parse(strDate);
-
-            } catch (ParseException ex) {
-                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } while (true);
-    }
-
-    public static boolean confirm(String message) {
-        String input;
-        do {
-            input = Utils.readLineFromConsole("\n" + message + "\n");
-        } while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n"));
-
-        return input.equalsIgnoreCase("y");
-    }
-
     public static Object showAndSelectOne(List list, String header) {
         showList(list, header);
         return selectsObject(list);

@@ -12,7 +12,7 @@ public class Password {
 
     public Password(String password) {
         if (!validate(password))
-            throw new IllegalArgumentException("Invalid Email Address.");
+            throw new IllegalArgumentException("Invalid Password");
         this.password = password;
     }
 
@@ -57,5 +57,6 @@ public class Password {
         Password obj = (Password) o;
         return Objects.equals(this.password, obj.password);
     }
+
 
 }

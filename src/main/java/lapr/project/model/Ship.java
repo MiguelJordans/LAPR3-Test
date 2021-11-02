@@ -1,9 +1,11 @@
 package lapr.project.model;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class Ship {
+public class Ship implements Comparable<Ship> {
 
     //dados estaticos
     int mmsi;
@@ -158,7 +160,7 @@ public class Ship {
 
     public String writeAllPos() {
 
-        String positionalMessage = new String();
+        String positionalMessage = "";
 
         for (Date dateTime : posDate.keySet()) {
             positionalMessage = positionalMessage + "" + dateTime + ": " + posDate.get(dateTime).toString();
@@ -184,5 +186,10 @@ public class Ship {
                 ", draft=" + draft +
                 ", posDate=" + posDate +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Ship o) {
+        return 0;
     }
 }
