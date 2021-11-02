@@ -19,7 +19,7 @@ public class Ship {
     long draft;
 
     //dados dinamicos
-    Map<LocalDateTime, Position> posDate; // DateTime is the key, which will save the specific position of its time.
+    Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
 
     public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
         checkIMO(imo);
@@ -85,7 +85,7 @@ public class Ship {
         return genPowerOutput;
     }
 
-    public Map<LocalDateTime, Position> getPosDate() {
+    public Map<Date, Position> getPosDate() {
         return posDate;
     }
 
@@ -160,7 +160,7 @@ public class Ship {
 
         String positionalMessage = new String();
 
-        for (LocalDateTime dateTime : posDate.keySet()) {
+        for (Date dateTime : posDate.keySet()) {
             positionalMessage = positionalMessage + "" + dateTime + ": " + posDate.get(dateTime).toString();
         }
 

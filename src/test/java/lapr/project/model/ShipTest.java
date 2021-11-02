@@ -5,6 +5,7 @@ package lapr.project.model;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -256,10 +257,10 @@ public class ShipTest {
     public void getPosDate(){
 
         //Arrange
-        Map<LocalDateTime,Position> expected = new HashMap<>();
-        expected.put(LocalDateTime.of(2001,7,20,1,20),posgeral);
+        Map<Date,Position> expected = new HashMap<>();
+        expected.put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
         //Act
-        shipgeral.getPosDate().put(LocalDateTime.of(2001,7,20,1,20),posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
         //Assert
         assertEquals(expected.keySet().toArray()[0],shipgeral.getPosDate().keySet().toArray()[0]);
 
@@ -269,15 +270,15 @@ public class ShipTest {
     public void organizePosDateTest(){
 
         //Arrange
-        shipgeral.getPosDate().put(LocalDateTime.of(2001,7,20,1,20),posgeral);
-        shipgeral.getPosDate().put(LocalDateTime.of(2000,7,20,1,20),posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"), posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 20 1997 23:36:30"),posgeral);
 
         //act
         shipgeral.organizeDatePos();
 
         //Arrange
-        assertEquals(LocalDateTime.of(2000,7,20,1,20),shipgeral.getPosDate().keySet().toArray()[0]);
-        assertEquals(LocalDateTime.of(2001,7,20,1,20),shipgeral.getPosDate().keySet().toArray()[1]);
+        assertEquals(new Date("Thu, Dec 20 1997 23:36:30"),shipgeral.getPosDate().keySet().toArray()[0]);
+        assertEquals(new Date("Thu, Dec 31 1998 23:37:50"),shipgeral.getPosDate().keySet().toArray()[1]);
     }
 
     @Test
@@ -285,10 +286,10 @@ public class ShipTest {
 
         Map<LocalDateTime,Position> expected = new HashMap<>();
 
-        shipgeral.getPosDate().put(LocalDateTime.of(2000,7,20,1,20),posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
 
         System.out.println(shipgeral.writeAllPos());
-        assertEquals("2000-07-20T01:20: Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}",shipgeral.writeAllPos());
+        assertEquals("Thu Dec 31 23:37:50 WET 1998: Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}",shipgeral.writeAllPos());
     }
 
 
