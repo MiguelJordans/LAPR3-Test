@@ -83,10 +83,19 @@ public class App {
 
         //Position
         Position posgeral = new Position(0, 0, 0, 1, 0);
+        Position posgeral2 = new Position(20, 30, 20, 10, 10);
+
         //Ships
+
+        //mmsi: 111111111
         Ship shipTest1 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
-        shipTest1.addNewPosMessage(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
+        shipTest1.addNewPosMessage(new Date("Dec 31 1998 23:37:50"),posgeral);
+        shipTest1.addNewPosMessage(new Date("Dec 31 1997 23:37:50"),posgeral2);
         company.getShipStore().getlShip().add(shipTest1);
+
+        //mmsi: 222222222
+        Ship shipTest2 = new Ship(222222222, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+        company.getShipStore().getlShip().add(shipTest2);
     }
 
     private static App singleton = null;

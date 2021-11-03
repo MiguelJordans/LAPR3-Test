@@ -31,6 +31,7 @@ class Main {
     public static void main(String[] args) throws IOException, SQLException {
         AuthUI authUi = new AuthUI();
         App app = new App();
+
         authUi.run();
     }
 }

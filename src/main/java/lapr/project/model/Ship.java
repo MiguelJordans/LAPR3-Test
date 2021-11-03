@@ -170,10 +170,10 @@ public class Ship implements Comparable<Ship> {
 
     public String writeAllPos() {
 
-        String positionalMessage = "";
+        String positionalMessage = "Positional Messages:";
 
         for (Date dateTime : posDate.keySet()) {
-            positionalMessage = positionalMessage + "" + dateTime + ": " + posDate.get(dateTime).toString();
+            positionalMessage = positionalMessage + "\n" + dateTime + ": " + posDate.get(dateTime).toString();
         }
 
         return positionalMessage;
