@@ -275,7 +275,7 @@ public class ShipTest {
         //act
         shipgeral.organizeDatePos();
 
-        //Arrange
+        //Assert
         assertEquals(new Date("Thu, Dec 20 1997 23:36:30"),shipgeral.getPosDate().keySet().toArray()[0]);
         assertEquals(new Date("Thu, Dec 31 1998 23:37:50"),shipgeral.getPosDate().keySet().toArray()[1]);
     }
@@ -283,15 +283,28 @@ public class ShipTest {
     @Test
     public void  writeAllPos(){
 
+        //Arrange
         Map<LocalDateTime,Position> expected = new HashMap<>();
 
+        //Act
         shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
 
-        System.out.println(shipgeral.writeAllPos());
+        //Assert
         assertEquals("Thu Dec 31 23:37:50 WET 1998: Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}",shipgeral.writeAllPos());
     }
 
+    @Test
+    public void addNewPosMessageTest(){
 
+        //Arrange
+        Position posgeral = new Position(0, 0, 0, 1, 0);
+        //Act
+        //Assert
+        assertEquals(false,shipgeral.addNewPosMessage(null,null));
+        assertEquals(true,shipgeral.addNewPosMessage(new Date("Thu, Dec 31 1998 23:37:50"), posgeral));
+
+
+    }
 
 
     @Test

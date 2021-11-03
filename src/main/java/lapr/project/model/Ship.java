@@ -154,6 +154,14 @@ public class Ship implements Comparable<Ship> {
         return true;
     }
 
+    public boolean addNewPosMessage(Date date, Position pos){
+
+        if(date != null && pos != null){
+            posDate.put(date,pos);
+            return true;
+        }
+        return false;
+    }
 
     public void organizeDatePos() {
 

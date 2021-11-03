@@ -1,17 +1,15 @@
 package lapr.project.controller;
 
 
-import lapr.project.model.Client;
-import lapr.project.model.Company;
-import lapr.project.model.TrafficManager;
+import lapr.project.model.*;
 import lapr.project.utils.auth.AuthFacade;
 import lapr.project.shared.Constants;
-import lapr.project.model.OrgRole;
 import lapr.project.utils.auth.UserSession;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Properties;
 
 public class App {
@@ -30,6 +28,10 @@ public class App {
 
     }
 
+    public Company getCompany()
+    {
+        return this.company;
+    }
 
     private Properties getProperties() {
         Properties props = new Properties();
@@ -79,6 +81,12 @@ public class App {
         TrafficManager tm1 = new TrafficManager(this.company.getOrgRoleStore().getRoleById(Constants.TRAFFIC_MANAGER), "TM00001", "Traffic Manager");
         this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "495", Constants.ROLE_TRAFFIC_MANAGER);
 
+        //Position
+        Position posgeral = new Position(0, 0, 0, 1, 0);
+        //Ships
+        Ship shipTest1 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+        shipTest1.addNewPosMessage(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
+        company.getShipStore().getlShip().add(shipTest1);
     }
 
     private static App singleton = null;
