@@ -16,7 +16,6 @@ public class ShipTest {
 
 
     Ship shipgeral = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
-    Ship shipgeral2 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
 
     Position posgeral = new Position(0,0,0,1,0);
     @Test
@@ -291,6 +290,8 @@ public class ShipTest {
         System.out.println(shipgeral.writeAllPos());
         assertEquals("Thu Dec 31 23:37:50 WET 1998: Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}",shipgeral.writeAllPos());
     }
+
+
 
 
     @Test

@@ -154,6 +154,7 @@ public class Ship implements Comparable<Ship> {
         return true;
     }
 
+
     public void organizeDatePos() {
 
         this.posDate = new TreeMap<>(posDate);
