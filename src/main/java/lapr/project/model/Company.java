@@ -35,7 +35,9 @@ public class Company {
         return this.orgRoleStore;
     }
 
-    public ShipStore getShipStore(){return this.shipStore;}
+    public ShipStore getShipStore() {
+        return this.shipStore;
+    }
 }
 
 

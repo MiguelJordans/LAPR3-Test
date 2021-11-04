@@ -19,12 +19,13 @@ public class PositionalMessageController {
 
         Ship ship = shipStore.getShipByMMSI(mmsi);
 
-        if(ship == null) return false;
+        if (ship == null) return false;
 
         String posMessage = ship.writeAllPos();
 
-        if(posMessage.equals("Positional Messages:")){System.out.println(mmsi+" positional messages are empty!");}
-        else {
+        if (posMessage.equals("Positional Messages:")) {
+            System.out.println(mmsi + " positional messages are empty!");
+        } else {
             System.out.println(posMessage);
             System.out.println("\n\nPositional messages sent successfully|");
         }
