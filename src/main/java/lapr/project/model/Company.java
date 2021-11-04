@@ -1,6 +1,6 @@
 package lapr.project.model;
 
-import lapr.project.model.stores.OrgRoleStore;
+import lapr.project.utils.auth.domain.store.OrgRoleStore;
 import lapr.project.utils.auth.AuthFacade;
 import lapr.project.utils.auth.domain.store.ShipStore;
 import org.apache.commons.lang3.StringUtils;

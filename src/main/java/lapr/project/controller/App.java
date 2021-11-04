@@ -5,6 +5,7 @@ import lapr.project.model.*;
 import lapr.project.utils.auth.AuthFacade;
 import lapr.project.shared.Constants;
 import lapr.project.utils.auth.UserSession;
+import lapr.project.utils.auth.domain.OrgRole;
 
 import java.io.FileInputStream;
 import java.io.IOException;

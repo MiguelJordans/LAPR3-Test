@@ -1,7 +1,7 @@
-package lapr.project.model.stores;
+package lapr.project.utils.auth.domain.store;
 
 
-import lapr.project.model.OrgRole;
+import lapr.project.utils.auth.domain.OrgRole;
 
 import java.util.ArrayList;
 import java.util.Iterator;

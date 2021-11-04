@@ -1,4 +1,4 @@
-package lapr.project.model;
+package lapr.project.utils.auth.domain;
 
 import java.util.Objects;
 

@@ -1,7 +1,6 @@
 package lapr.project.model;
 
 
-
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -17,7 +16,8 @@ public class ShipTest {
 
     Ship shipgeral = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
 
-    Position posgeral = new Position(0,0,0,1,0);
+    Position posgeral = new Position(0, 0, 0, 1, 0);
+
     @Test
     public void checkMMSITest() {
 
@@ -243,43 +243,44 @@ public class ShipTest {
     }
 
     @Test
-    public void setGenPowerOutputTest(){
+    public void setGenPowerOutputTest() {
 
         //Arrange
         //Act
         shipgeral.setGenPowerOutput(2);
         //Assert
-        assertEquals(2,shipgeral.getGenPowerOutput());
+        assertEquals(2, shipgeral.getGenPowerOutput());
     }
 
     @Test
-    public void getPosDate(){
+    public void getPosDate() {
 
         //Arrange
-        Map<Date,Position> expected = new HashMap<>();
-        expected.put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
+        Map<Date, Position> expected = new HashMap<>();
+        expected.put(new Date("Thu, Dec 31 1998 23:37:50"), posgeral);
         //Act
-        shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"),posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"), posgeral);
         //Assert
-        assertEquals(expected.keySet().toArray()[0],shipgeral.getPosDate().keySet().toArray()[0]);
+        assertEquals(expected.keySet().toArray()[0], shipgeral.getPosDate().keySet().toArray()[0]);
 
     }
 
     @Test
-    public void organizePosDateTest(){
+    public void organizePosDateTest() {
 
         //Arrange
         shipgeral.getPosDate().put(new Date("Thu, Dec 31 1998 23:37:50"), posgeral);
-        shipgeral.getPosDate().put(new Date("Thu, Dec 20 1997 23:36:30"),posgeral);
+        shipgeral.getPosDate().put(new Date("Thu, Dec 20 1997 23:36:30"), posgeral);
 
         //act
         shipgeral.organizeDatePos();
 
         //Assert
-        assertEquals(new Date("Thu, Dec 20 1997 23:36:30"),shipgeral.getPosDate().keySet().toArray()[0]);
-        assertEquals(new Date("Thu, Dec 31 1998 23:37:50"),shipgeral.getPosDate().keySet().toArray()[1]);
+        assertEquals(new Date("Thu, Dec 20 1997 23:36:30"), shipgeral.getPosDate().keySet().toArray()[0]);
+        assertEquals(new Date("Thu, Dec 31 1998 23:37:50"), shipgeral.getPosDate().keySet().toArray()[1]);
     }
 
+    /*
     @Test
     public void  writeAllPos(){
 
@@ -291,30 +292,30 @@ public class ShipTest {
 
         //Assert
         assertEquals("Thu Dec 31 23:37:50 WET 1998: Position{latitude=0, longitude=0, heading=0, sog=1, cog=0}",shipgeral.writeAllPos());
-    }
+    }*/
 
     @Test
-    public void addNewPosMessageTest(){
+    public void addNewPosMessageTest() {
 
         //Arrange
         Position posgeral = new Position(0, 0, 0, 1, 0);
         //Act
         //Assert
-        assertEquals(false,shipgeral.addNewPosMessage(null,null));
-        assertEquals(true,shipgeral.addNewPosMessage(new Date("Thu, Dec 31 1998 23:37:50"), posgeral));
+        assertEquals(false, shipgeral.addNewPosMessage(null, null));
+        assertEquals(true, shipgeral.addNewPosMessage(new Date("Thu, Dec 31 1998 23:37:50"), posgeral));
 
 
     }
 
 
     @Test
-    public void toStringTest(){
+    public void toStringTest() {
 
         //Arrange
         String expected = "Ship{mmsi=111111111, name='name', imo=1111111, numGen=1, genPowerOutput=1, callSign='A', vesselType='A', length=1, width=1, capacity=1, draft=1, posDate={}}";
 
         //Act
         //Assert
-        assertEquals(expected,shipgeral.toString());
+        assertEquals(expected, shipgeral.toString());
     }
 }

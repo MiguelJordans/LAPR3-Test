@@ -49,5 +49,9 @@ public class UserSession {
         }
         return Collections.EMPTY_LIST;
     }
+
+    public User getUser() {
+        return user;
+    }
 }
 

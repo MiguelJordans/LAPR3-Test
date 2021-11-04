@@ -1,5 +1,7 @@
 package lapr.project.model;
 
+import lapr.project.utils.auth.domain.OrgRole;
+
 public class Employee {
 
     private String email;
