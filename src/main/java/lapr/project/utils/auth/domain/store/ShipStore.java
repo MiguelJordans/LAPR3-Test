@@ -39,6 +39,12 @@ public class ShipStore {
         return null;
     }
 
+    public List<Integer> getMmsiList(Ship ship) {
+        List<Integer> shipListMmsi = new ArrayList<>();
+        shipListMmsi.add(ship.getMmsi());
+        return shipListMmsi;
+    }
+
     public String getShipSummary(long mmsi) {
 
         String returnString;
