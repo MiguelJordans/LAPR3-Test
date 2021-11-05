@@ -39,10 +39,20 @@ public class ShipStore {
         return null;
     }
 
-    public List<Integer> getMmsiList(Ship ship) {
+    public List<Integer> getShipListMmsi() {
         List<Integer> shipListMmsi = new ArrayList<>();
-        shipListMmsi.add(ship.getMmsi());
+        for (Ship ship : lShip) {
+            shipListMmsi.add(ship.getMmsi());
+        }
         return shipListMmsi;
+    }
+
+    public List<String> getShipListPos() {
+        List<String> shipListPos = new ArrayList<>();
+        for (Ship ship : lShip) {
+            shipListPos.add(ship.writeAllPos());
+        }
+        return shipListPos;
     }
 
     public String getShipSummary(long mmsi) {

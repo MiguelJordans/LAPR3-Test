@@ -13,13 +13,21 @@ public class ListShipsUI implements Runnable {
 
     public void run() {
         try {
-            ctrl.getShipList();
+            ctrl.getShipListMmsi();
+            ctrl.getShipListMovements();
         } catch (Exception e) {
             System.out.println("Ship list empty!");
             return;
         }
 
-        List<Integer> shipMmsi = ctrl.getShipList();
-        System.out.println(shipMmsi);
+        List<Integer> shipListMmsi = ctrl.getShipListMmsi();
+        System.out.println();
+        System.out.println("### Ship List - MMSI ###");
+        System.out.println(shipListMmsi);
+
+        List<String> shipListMov = ctrl.getShipListMovements();
+        System.out.println();
+        System.out.println("### Ship List - Number of Movements ###");
+        System.out.println(shipListMov);
     }
 }

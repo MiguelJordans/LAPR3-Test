@@ -95,7 +95,7 @@ public class App {
         company.getShipStore().getlShip().add(shipTest1);
 
         //mmsi: 222222222
-        Ship shipTest2 = new Ship(222222222, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+        Ship shipTest2 = new Ship(222222222, "barquito", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
         company.getShipStore().getlShip().add(shipTest2);
     }
 
