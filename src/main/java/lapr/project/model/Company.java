@@ -23,7 +23,6 @@ public class Company {
 
         this.authFacade = new AuthFacade();
         this.orgRoleStore = new OrgRoleStore();
-
         this.shipStore = new ShipStore();
     }
 
