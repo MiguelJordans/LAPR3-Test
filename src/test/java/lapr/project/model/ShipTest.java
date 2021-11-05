@@ -16,7 +16,7 @@ public class ShipTest {
 
     Ship shipgeral = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
 
-    Position posgeral = new Position(0, 0, 0, 1, 0);
+    Position posgeral = new Position(0, 0, 0, 1, 0,null);
 
     @Test
     public void checkMMSITest() {
@@ -298,7 +298,7 @@ public class ShipTest {
     public void addNewPosMessageTest() {
 
         //Arrange
-        Position posgeral = new Position(0, 0, 0, 1, 0);
+        Position posgeral = new Position(0, 0, 0, 1, 0,null);
         //Act
         //Assert
         assertEquals(false, shipgeral.addNewPosMessage(null, null));

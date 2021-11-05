@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PositionTest {
 
 
-    Position posgeral = new Position(0, 0, 0, 1, 0);
+    Position posgeral = new Position(0, 0, 0, 1, 0,null);
 
     @Test
     void getLatitudeTest() {

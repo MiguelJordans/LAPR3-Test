@@ -1,6 +1,7 @@
 package lapr.project.model;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class Position {
     long latitude;
@@ -8,13 +9,15 @@ public class Position {
     long heading;
     long sog;
     long cog;
+    Date date;
 
-    public Position(long latitude, long longitude, long heading, long sog, long cog) {
+    public Position(long latitude, long longitude, long heading, long sog, long cog,Date date) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.heading = heading;
         this.sog = sog;
         this.cog = cog;
+        this.date = date;
     }
 
     public long getLatitude() {
@@ -35,6 +38,14 @@ public class Position {
 
     public long getCog() {
         return cog;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setLatitude(long latitude) {

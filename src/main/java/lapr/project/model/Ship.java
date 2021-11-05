@@ -20,6 +20,7 @@ public class Ship implements Comparable<Ship> {
 
     //dados dinamicos
     Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
+    List<Position> Date;
 
     public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
         checkIMO(imo);
@@ -38,6 +39,7 @@ public class Ship implements Comparable<Ship> {
         this.draft = draft;
 
         this.posDate = new HashMap<>();
+        Date = new ArrayList<>();
     }
 
     //Getters
@@ -89,6 +91,14 @@ public class Ship implements Comparable<Ship> {
         return posDate;
     }
 
+
+    public List<Position> getDate() {
+        return Date;
+    }
+
+    public void setDate(List<Position> date) {
+        Date = date;
+    }
 
     //Setters
     public void setMmsi(int mmsi) {

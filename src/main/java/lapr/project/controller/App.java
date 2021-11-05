@@ -83,8 +83,8 @@ public class App {
         this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "495", Constants.ROLE_TRAFFIC_MANAGER);
 
         //Position
-        Position posgeral = new Position(0, 0, 0, 1, 0);
-        Position posgeral2 = new Position(20, 30, 20, 10, 10);
+        Position posgeral = new Position(0, 0, 0, 1, 0,null);
+        Position posgeral2 = new Position(20, 30, 20, 10, 10,null);
 
         //Ships
 
