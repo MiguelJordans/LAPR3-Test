@@ -24,4 +24,3 @@ public class TrafficManagerUI implements Runnable {
         while (option != -1);
     }
 }
-

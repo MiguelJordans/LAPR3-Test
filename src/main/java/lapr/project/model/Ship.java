@@ -1,6 +1,5 @@
 package lapr.project.model;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class Ship implements Comparable<Ship> {
