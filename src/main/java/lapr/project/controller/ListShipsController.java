@@ -9,20 +9,27 @@ import java.util.List;
 
 public class ListShipsController {
 
+    Company company;
     Ship ship;
     ShipStore shipStore;
     List<Integer> shipListMmsi;
+    List<String> shipListMov;
 
     public ListShipsController() {
-        App app = App.getInstance();
-        Company company = app.getCompany();
-        shipStore = company.getShipStore();
-        shipListMmsi = new ArrayList<>();
+        this.company = App.getInstance().getCompany();
+        this.shipStore = company.getShipStore();
+        this.shipListMmsi = new ArrayList<>();
     }
 
-    public List<Integer> getShipList() {
+    public List<Integer> getShipListMmsi() {
         shipListMmsi = new ArrayList<>();
-        shipListMmsi.addAll(shipStore.getMmsiList(ship));
+        shipListMmsi = shipStore.getShipListMmsi();
         return shipListMmsi;
+    }
+
+    public List<String> getShipListMovements() {
+        shipListMov = new ArrayList<>();
+        shipListMov = shipStore.getShipListPos();
+        return shipListMov;
     }
 }

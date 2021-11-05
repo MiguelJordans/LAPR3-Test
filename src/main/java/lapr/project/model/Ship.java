@@ -1,10 +1,7 @@
 package lapr.project.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Ship implements Comparable<Ship> {
 
