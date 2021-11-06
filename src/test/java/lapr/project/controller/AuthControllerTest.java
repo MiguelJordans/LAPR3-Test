@@ -13,20 +13,13 @@ class AuthControllerTest {
 
     static AuthController authController = new AuthController();
 
-    @BeforeAll
-    public static void init() {
+    @Test
+    public void doLogin() {
 
+        //Arrange
         authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem desing");
         authController.getApp().getAuthFacade().addUserWithRole("Mariana", "1200902@isep.ipp.pt", "69Sus", "Trolley");
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
-
-    }
-
-
-    @Test
-    void doLogin() {
-
-        //Arrange
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         boolean expected = true;
         //Act
@@ -34,36 +27,44 @@ class AuthControllerTest {
         //Assert
         assertEquals(expected, actual);
 
-
     }
 
     @Test
-    void getUserRoles() {
+    public void getUserRoles() {
 
         //Arrange + Act
+        authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem desing");
+        authController.getApp().getAuthFacade().addUserWithRole("Mariana", "1200902@isep.ipp.pt", "69Sus", "Trolley");
+        authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         List<UserRoleDTO> list = authController.getUserRoles();
-        System.out.println(list);
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         //Assert
-        assertNull(list);
+        assertNotNull(list);
 
     }
 
     @Test
-    void doLogout() {
+    public void doLogout() {
         //Arrange
+        authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem desing");
+        authController.getApp().getAuthFacade().addUserWithRole("Mariana", "1200902@isep.ipp.pt", "69Sus", "Trolley");
+        authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         User expected = null;
         authController.doLogout();
         //Act
         User actual = authController.getApp().getCurrentUserSession().getUser();
         //Assert
         assertEquals(expected, actual);
+
     }
 
 
     @Test
-    void getCompany() {
+    public void getCompany() {
         //Arrange + Act + Assert
+        authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem desing");
+        authController.getApp().getAuthFacade().addUserWithRole("Mariana", "1200902@isep.ipp.pt", "69Sus", "Trolley");
+        authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         assertNotNull(authController.getApp().getCompany());
     }
 

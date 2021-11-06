@@ -92,27 +92,27 @@ public class App {
         this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "495", Constants.ROLE_TRAFFIC_MANAGER);
 
         //Position
-        String sdate = "31/12/2020 23:16";
+        String sdate = "31-12-2020 23:16";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        LocalDateTime date = (LocalDateTime) formatter.parse(sdate);
+        LocalDateTime date = LocalDateTime.parse(sdate, formatter);
 
-        String sdate2 = "31/12/2020 23:50";
+        String sdate2 = "31-12-2020 23:50";
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        LocalDateTime date2 = (LocalDateTime) formatter.parse(sdate);
+        LocalDateTime date2 = LocalDateTime.parse(sdate2, formatter2);
 
-        Position posgeral = new Position(date, 0, 0, 0, 1, date);
-        Position posgeral2 = new Position(date2, 20, 30, 20, 10, date2);
+        Position posgeral = new Position(0, 0, 0, 0, 1, date);
+        Position posgeral2 = new Position(10, 20, 30, 20, 10, date2);
 
         //Ships
 
         //mmsi: 111111111
-        Ship shipTest1 = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
+        Ship shipTest1 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
 /*        shipTest1.addNewPosMessage(new Date("Dec 31 1998 23:37:50"), posgeral);
         shipTest1.addNewPosMessage(new Date("Dec 31 1997 23:37:50"), posgeral2);*/
         company.getShipStore().getlShip().add(shipTest1);
 
         //mmsi: 222222222
-        Ship shipTest2 = new Ship(222222222, "barquito", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
+        Ship shipTest2 = new Ship(222222222, "barquito", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
         //   company.getShipStore().getlShip().add(shipTest2);
     }
 

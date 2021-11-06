@@ -1,6 +1,6 @@
 package lapr.project.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Position {
 
@@ -9,9 +9,9 @@ public class Position {
     long heading;
     long sog;
     long cog;
-    Date date;
+    LocalDateTime date;
 
-    public Position(long latitude, long longitude, long heading, long sog, long cog, Date date) {
+    public Position(long latitude, long longitude, long heading, long sog, long cog, LocalDateTime date) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.heading = heading;
@@ -40,11 +40,11 @@ public class Position {
         return cog;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
