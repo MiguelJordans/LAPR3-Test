@@ -1,9 +1,9 @@
 package lapr.project.model;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class Position {
+
     long latitude;
     long longitude;
     long heading;
@@ -11,7 +11,7 @@ public class Position {
     long cog;
     Date date;
 
-    public Position(long latitude, long longitude, long heading, long sog, long cog,Date date) {
+    public Position(long latitude, long longitude, long heading, long sog, long cog, Date date) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.heading = heading;

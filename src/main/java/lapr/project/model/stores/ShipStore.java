@@ -4,6 +4,7 @@ import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
 
 public class ShipStore {
+
     BinarySearchTree<Ship> shipBinarySearchTree;
 
     public ShipStore() {
@@ -13,6 +14,8 @@ public class ShipStore {
     public ShipStore(BinarySearchTree<Ship> shipBinarySearchTree) {
         this.shipBinarySearchTree = shipBinarySearchTree;
     }
+
+
 
 
 }

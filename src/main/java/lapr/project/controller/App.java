@@ -100,8 +100,8 @@ public class App {
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         LocalDateTime date2 = (LocalDateTime) formatter.parse(sdate);
 
-        Position posgeral = new Position(date, 0, 0, 0, 1, 0);
-        Position posgeral2 = new Position(date2, 20, 30, 20, 10, 10);
+        Position posgeral = new Position(date, 0, 0, 0, 1, date);
+        Position posgeral2 = new Position(date2, 20, 30, 20, 10, date2);
 
         //Ships
 
@@ -113,7 +113,7 @@ public class App {
 
         //mmsi: 222222222
         Ship shipTest2 = new Ship(222222222, "barquito", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
-        company.getShipStore().getlShip().add(shipTest2);
+        //   company.getShipStore().getlShip().add(shipTest2);
     }
 
     public AuthFacade getAuthFacade() {
