@@ -2,7 +2,8 @@ package lapr.project.controller;
 
 import lapr.project.model.Company;
 import lapr.project.model.Ship;
-import lapr.project.utils.auth.domain.store.ShipStore;
+import lapr.project.model.stores.ShipStore;
+
 
 public class PositionalMessageController {
 

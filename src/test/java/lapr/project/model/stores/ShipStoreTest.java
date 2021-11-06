@@ -2,7 +2,6 @@ package lapr.project.model.stores;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import lapr.project.model.Ship;
-import lapr.project.utils.auth.domain.store.ShipStore;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
