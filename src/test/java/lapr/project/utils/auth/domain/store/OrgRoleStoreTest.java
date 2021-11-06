@@ -1,4 +1,4 @@
-/*package lapr.project.utils.auth.domain.store;
+package lapr.project.utils.auth.domain.store;
 
 import lapr.project.utils.auth.domain.OrgRole;
 import org.junit.jupiter.api.Assertions;
@@ -90,4 +90,4 @@ class OrgRoleStoreTest {
         //Assert
         assertEquals(expected, actual);
     }
-}*/
+}

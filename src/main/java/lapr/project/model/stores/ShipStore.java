@@ -20,8 +20,7 @@ public class ShipStore {
         this.shipBinarySearchTree = shipBinarySearchTree;
     }
 
-    public List<Ship> getlShip() {
-
+    public List<Ship> transformBSTintoList() {
         Iterable<Ship> ls = shipBinarySearchTree.inOrder();
         List<Ship> lShip = new ArrayList<>();
         ls.iterator().forEachRemaining(lShip::add);
@@ -29,11 +28,14 @@ public class ShipStore {
         return lShip;
     }
 
+    public List<Ship> getlShip() {
+
+        return transformBSTintoList();
+    }
+
     public boolean writeAllShips() {
 
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
-        List<Ship> lShip = new ArrayList<>();
-        ls.iterator().forEachRemaining(lShip::add);
+        List<Ship> lShip = transformBSTintoList();
 
         if (lShip.isEmpty()) return false;
 
@@ -46,9 +48,7 @@ public class ShipStore {
 
     public Ship getShipByMMSI(long mmsi) {
 
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
-        List<Ship> lShip = new ArrayList<>();
-        ls.iterator().forEachRemaining(lShip::add);
+        List<Ship> lShip = transformBSTintoList();
 
         for (Ship s : lShip) {
 
@@ -60,9 +60,7 @@ public class ShipStore {
 
     public List<Integer> getShipListMmsi() {
 
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
-        List<Ship> lShip = new ArrayList<>();
-        ls.iterator().forEachRemaining(lShip::add);
+        List<Ship> lShip = transformBSTintoList();
 
         List<Integer> shipListMmsi = new ArrayList<>();
         for (Ship ship : lShip) {
@@ -73,9 +71,7 @@ public class ShipStore {
 
     public List<String> getShipListPos() {
 
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
-        List<Ship> lShip = new ArrayList<>();
-        ls.iterator().forEachRemaining(lShip::add);
+        List<Ship> lShip = transformBSTintoList();
 
         List<String> shipListPos = new ArrayList<>();
         for (Ship ship : lShip) {
@@ -89,10 +85,8 @@ public class ShipStore {
     }
 
     public Ship getShipByMMSI(int mmsi) {
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
 
-        List<Ship> lista = new ArrayList<>();
-        ls.iterator().forEachRemaining(lista::add);
+        List<Ship> lista = transformBSTintoList();
 
         for (Ship s : lista) {
             if (s.getMmsi() == mmsi)
@@ -103,9 +97,7 @@ public class ShipStore {
 
     public String getShipSummary(long mmsi) {
 
-        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
-        List<Ship> lShip = new ArrayList<>();
-        ls.iterator().forEachRemaining(lShip::add);
+        List<Ship> lShip = transformBSTintoList();
 
         String returnString;
 
