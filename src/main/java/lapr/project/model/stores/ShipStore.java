@@ -236,4 +236,6 @@ public class ShipStore {
         return (s.getPosDate().get(getLastDate(s)).getLongitude());
     }
 
+    private long getTotalTravelledDistance
+
 }

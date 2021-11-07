@@ -33,19 +33,6 @@ class OrgRoleStoreTest {
         assertNotNull(actual);
     }
 
-    /*@Test
-    void getOrgRoles() {
-
-        //Arrange
-        List<OrgRole> expected = new ArrayList<>();
-        expected.add(orgRole);
-        //Act
-        List<OrgRole> actual = orgRoleStore.getOrgRoles();
-        //Assert
-        assertEquals(expected, actual);
-
-    }*/
-
     @Test
     void getOrgRolesNull() {
 
