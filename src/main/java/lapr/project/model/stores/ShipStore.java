@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ShipStore {
 
     BinarySearchTree<Ship> shipBinarySearchTree;
+    BinarySearchTree<List<Ship>> pairsOfShipsSearchTree;
 
     public ShipStore() {
         this.shipBinarySearchTree = new BinarySearchTree<>();
@@ -339,4 +340,44 @@ public class ShipStore {
         return DistanceCalculation.distanceTo(positionList.get(0), positionList.get(positionList.size() - 1));
     }
 
+//Ainda falta acabar este método
+
+    /*
+
+    public void getPairOfShipsInsideBST() {
+
+        List<Ship> lShip = transformBSTintoList();
+
+        for (int i = 0; i < lShip.size(); i++) {
+
+            Ship s1 = lShip.get(i);
+
+            for (int j = 1; j < lShip.size(); j++) {
+
+                Ship s2 = lShip.get(j);
+
+                if (!s1.equals(s2)) {
+
+                    Iterable<Position> date1Iterable = s1.getBinaryTreePosition().inOrder();
+                    List<Position> positionS1List = new ArrayList<>();
+                    date1Iterable.iterator().forEachRemaining(positionS1List::add);
+
+                    Iterable<Position> date2Iterable = s2.getBinaryTreePosition().inOrder();
+                    List<Position> positionS2List = new ArrayList<>();
+                    date2Iterable.iterator().forEachRemaining(positionS2List::add);
+
+                    if (getDeltaDistance(positionS1List) == getDeltaDistance(positionS2List) && (getDeltaDistance(positionS1List) < 5000 && getDeltaDistance(positionS2List) < 5000) && (getTravelledDistance(positionS1List) > 10000 && getTravelledDistance(positionS2List) > 10000)) {
+
+                        List<Ship> pairOfShips = new ArrayList<>();
+
+                        pairOfShips.add(s1);
+                        pairOfShips.add(s2);
+
+                        pairsOfShipsSearchTree.insert(pairOfShips);
+
+                    }
+                }
+            }
+        }
+    }*/
 }
