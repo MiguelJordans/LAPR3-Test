@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ShipStore {
 
     BinarySearchTree<Ship> shipBinarySearchTree;
-    BinarySearchTree<List<Ship>> pairsOfShipsSearchTree;
+   // BinarySearchTree<List<Ship>> pairsOfShipsSearchTree;
 
     public ShipStore() {
         this.shipBinarySearchTree = new BinarySearchTree<>();
