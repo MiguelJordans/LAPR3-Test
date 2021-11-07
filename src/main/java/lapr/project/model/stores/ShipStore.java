@@ -251,9 +251,4 @@ public class ShipStore {
         return (s.getPosDate().get(getLastDate(s)).getLongitude());
     }
 
-<<<<<<< HEAD
-    private long getTotalTravelledDistance
-=======
->>>>>>> 9c716ef51ef62cb485d8d971f56541018b42cda0
-
 }
