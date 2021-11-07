@@ -3,10 +3,8 @@ package lapr.project.shared;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class DistanceCalculation {
 
@@ -30,9 +28,14 @@ public class DistanceCalculation {
         return d;
     }
 
-    public static double traveledDistanceBaseDateTime(Ship ship, Date initiald, Date finald) {
+    public static double traveledDistanceBaseDateTime(Ship ship, LocalDateTime localinitiald, LocalDateTime localfinald) {
+
+
+        Date initiald = java.sql.Timestamp.valueOf(localfinald);
+        Date finald = java.sql.Timestamp.valueOf(localfinald);
 
         if(ship == null && initiald == null && initiald == null && initiald.equals(finald)) return 0;
+
 
         double d = 0;
         List<Position> positionList = new ArrayList<>();
@@ -40,6 +43,9 @@ public class DistanceCalculation {
         calendar.setTime(initiald);
         Position sv1;
         Position sv2;
+
+        Iterable<Position> posIterable = ship.getBinaryTreePosition().inOrder();
+        Iterator<Position> posIterator = posIterable.iterator();
 
 
         while (initiald.before(finald)) {
@@ -56,8 +62,9 @@ public class DistanceCalculation {
             }
 
 
-            for (Position pos : ship.getDate()) {
+            while (posIterator.hasNext()) {
 
+                Position pos = posIterator.next();
                 if (pos.getDate().equals(initiald)) {
 
                     positionList.add(pos);
@@ -94,4 +101,35 @@ public class DistanceCalculation {
         return d;
     }
 
+  /*  public static double traveledDistance(Ship ship) {
+
+        Iterable<Position> allPos = ship.getBinaryTreePosition().inOrder();
+        Iterator<Position> iteratorPos = allPos.iterator();
+
+        double d = 0;
+        int count = 0;
+        Position posA[] = new Position[2];
+
+
+        while (iteratorPos.hasNext()) {
+
+
+            posA[count] = iteratorPos.next();
+
+            count++;
+
+            if (count == 2 && posA[0] != null && posA[1] != null) {
+
+                d = d + distanceTo(posA[0], posA[1]);
+
+                count = 0;
+                posA[count] = posA[1];
+                count++;
+            }
+
+
+        }
+        return d;
+
+    }*/
 }

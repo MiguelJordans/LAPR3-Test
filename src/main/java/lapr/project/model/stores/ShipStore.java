@@ -233,6 +233,8 @@ public class ShipStore {
         return (meanCOG / count);
     }
 
+    public BinarySearchTree<Ship> getShipBinarySearchTree(){ return shipBinarySearchTree;}
+
     private long getDepartureLatitude(Ship s) {
         return (s.getPosDate().get(getFirstDate(s)).getLatitude());
     }
@@ -248,5 +250,6 @@ public class ShipStore {
     private long getArrivalLongitude(Ship s) {
         return (s.getPosDate().get(getLastDate(s)).getLongitude());
     }
+
 
 }

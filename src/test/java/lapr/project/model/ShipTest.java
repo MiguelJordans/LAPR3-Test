@@ -256,7 +256,7 @@ public class ShipTest {
 
 
 
-
+/*
     @Test
     public void getPositionByLocalDateTimeTest(){
 
@@ -266,7 +266,7 @@ public class ShipTest {
         //Act
         //Assert
         assertEquals(expected, shipgeral.getPositionByLocalDateTime(dateTime));
-    }
+    }*/
 
 
     @Test

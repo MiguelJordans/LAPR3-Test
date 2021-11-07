@@ -201,7 +201,7 @@ public class Ship implements Comparable<Ship> {
         }
     }
 
-    public Position getPositionByLocalDateTime(LocalDateTime dt){
+    public Position getPositionByLocalDateTime(Date dt){
 
         Iterable<Position> itpos = binaryTreePosition.inOrder();
 
@@ -209,7 +209,7 @@ public class Ship implements Comparable<Ship> {
         itpos.iterator().forEachRemaining(posList::add);
 
         for(Position pos : posList){
-            if(pos.getDate().isEqual(dt)) return pos;
+            if(pos.getDate().equals(dt)) return pos;
         }
 
         return null;
