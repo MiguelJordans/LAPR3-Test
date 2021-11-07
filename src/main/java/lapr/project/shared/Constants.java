@@ -17,6 +17,7 @@ public class Constants {
     public static final String ROLE_SHIP_CAPTAIN = "SHIP_CAPTAIN";
     public static final String ROLE_CHIEF_ELECTRICAL_ENGINEER = "CHIEF_ELECTRICAL_ENGINEER";
     public static final String ROLE_TRUCK_DRIVER = "TRUCK_DRIVER";
+    public static final String ROLE_HUMAN_RESOURCES_STAFF = "HUMAN_RESOURCES_STAFF";
 
     //Org roles
     public static final String CLIENT = "Client";
@@ -29,6 +30,7 @@ public class Constants {
     public static final String SHIP_CAPTAIN = "Ship_Captain";
     public static final String SHIP_CHIEF_ELECTRICAL_ENGINEER = "Ship_Chief_Electrical_Engineer";
     public static final String TRUCK_DRIVER = "Truck_Driver";
+    public static final String HUMAN_RESOURCES_STAFF = "Human_Resources_Staff";
 
     public static final double MAX_LATITUDE = 90;
     public static final double MAX_LONGITUDE = 180;

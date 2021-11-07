@@ -44,5 +44,9 @@ public class UserRoleStore {
     public boolean exists(UserRole role) {
         return this.store.contains(role);
     }
+
+    public Set<UserRole> getUserRoles() {
+        return store;
+    }
 }
 

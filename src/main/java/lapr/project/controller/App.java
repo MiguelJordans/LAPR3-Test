@@ -79,9 +79,11 @@ public class App {
 
         this.authFacade.addUserRole(Constants.ROLE_CLIENT, Constants.ROLE_CLIENT);
         this.authFacade.addUserRole(Constants.TRAFFIC_MANAGER, Constants.ROLE_TRAFFIC_MANAGER);
+        this.authFacade.addUserRole(Constants.HUMAN_RESOURCES_STAFF, Constants.ROLE_HUMAN_RESOURCES_STAFF);
 
         this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.CLIENT, Constants.MODEL_CLASS_PATH + "" + Constants.CLIENT));
         this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.TRAFFIC_MANAGER, Constants.MODEL_CLASS_PATH + "" + Constants.TRAFFIC_MANAGER));
+        this.company.getOrgRoleStore().addOrgRole(new OrgRole(Constants.HUMAN_RESOURCES_STAFF, Constants.MODEL_CLASS_PATH + "" + Constants.HUMAN_RESOURCES_STAFF));
 
         //email: R00001@lei.pt pass: 123
         Client c1 = new Client(this.company.getOrgRoleStore().getRoleById(Constants.CLIENT), "R00001", "Receptionist1");
@@ -90,6 +92,10 @@ public class App {
         //email: TM00001@lei.pt pass: 495
         TrafficManager tm1 = new TrafficManager(this.company.getOrgRoleStore().getRoleById(Constants.TRAFFIC_MANAGER), "TM00001", "Traffic Manager");
         this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "495", Constants.ROLE_TRAFFIC_MANAGER);
+
+        //email: HS00001@lei.pt pass: 495
+        HumanResourcesStaff hs1 = new HumanResourcesStaff(this.company.getOrgRoleStore().getRoleById(Constants.HUMAN_RESOURCES_STAFF), "HS00001", "Human Resources Staff");
+        this.authFacade.addUserWithRole(tm1.getName(), tm1.getEmail(), "295", Constants.ROLE_TRAFFIC_MANAGER);
 
         //Position
         String sdate = "31-12-2020 23:16";

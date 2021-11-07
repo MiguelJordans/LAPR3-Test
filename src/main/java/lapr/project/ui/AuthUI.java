@@ -46,7 +46,7 @@ public class AuthUI {
                 }
             }
         }
-        this.logout();
+        //this.logout();
     }
 
     private boolean doLogin()

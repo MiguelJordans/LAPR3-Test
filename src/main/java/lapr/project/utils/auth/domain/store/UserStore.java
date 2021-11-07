@@ -59,4 +59,5 @@ public class UserStore {
     public boolean exists(User user) {
         return this.store.contains(user);
     }
+
 }

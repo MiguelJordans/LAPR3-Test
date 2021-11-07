@@ -87,6 +87,10 @@ public class AuthFacade {
     public UserStore getUserStore() {
         return this.users;
     }
+
+    public UserRoleStore getRoles() {
+        return roles;
+    }
 }
 
 
