@@ -71,7 +71,7 @@ public class ShipSummaryUI implements Runnable {
                 break;
         }
 
-        if (shipSummary != null) System.out.println("Ship's summary : " + "\n" + shipSummary);
+        if (shipSummary != null) System.out.println("SHIP'S SUMMARY : " + "\n" + shipSummary);
 
     }
 }
