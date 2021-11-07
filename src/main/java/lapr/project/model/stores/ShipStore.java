@@ -4,7 +4,11 @@ import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
 
 import java.util.ArrayList;
+
+import java.util.Iterator;
+
 import java.util.Date;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -86,12 +90,21 @@ public class ShipStore {
 
     public Ship getShipByMMSI(int mmsi) {
 
+
+        Iterable<Ship> ls = shipBinarySearchTree.inOrder();
+        Iterator<Ship> iterShip = ls.iterator();
+
+        while(iterShip.hasNext()){
+            Ship s = iterShip.next();
+
+
+
         List<Ship> lista = transformBSTintoList();
 
-        for (Ship s : lista) {
-            if (s.getMmsi() == mmsi)
-                return s;
+
+            if(s.getMmsi() == mmsi) return s;
         }
+
         return null;
     }
 
@@ -220,6 +233,8 @@ public class ShipStore {
         return (meanCOG / count);
     }
 
+    public BinarySearchTree<Ship> getShipBinarySearchTree(){ return shipBinarySearchTree;}
+
     private long getDepartureLatitude(Ship s) {
         return (s.getPosDate().get(getFirstDate(s)).getLatitude());
     }
@@ -236,6 +251,9 @@ public class ShipStore {
         return (s.getPosDate().get(getLastDate(s)).getLongitude());
     }
 
+<<<<<<< HEAD
     private long getTotalTravelledDistance
+=======
+>>>>>>> 9c716ef51ef62cb485d8d971f56541018b42cda0
 
 }

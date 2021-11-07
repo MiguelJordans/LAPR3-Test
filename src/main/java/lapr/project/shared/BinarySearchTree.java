@@ -213,6 +213,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements BSTInterface<E
         preOrderSubtree(node.getRight(), snapshot);
     }
 
+
     /**
      * Returns an iterable collection of elements of the tree, reported in post-order.
      *
@@ -224,6 +225,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements BSTInterface<E
             posOrderSubtree(root, snapshot);   // fill the snapshot recursively
         return snapshot;
     }
+
 
     /**
      * Adds positions of the subtree rooted at Node node to the given

@@ -16,9 +16,10 @@ public class PositionalMessageController {
     }
 
 
-    public boolean getPositionalMessages(long mmsi) {
+    public boolean getPositionalMessages(int mmsi) {
 
         Ship ship = shipStore.getShipByMMSI(mmsi);
+
 
         if (ship == null) return false;
 

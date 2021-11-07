@@ -16,7 +16,7 @@ public class ListShipsController {
 
     public ListShipsController() {
         this.company = App.getInstance().getCompany();
-        this.shipStore = company.getShipStore();
+        this.shipStore = new ShipStore();
         this.shipListMmsi = new ArrayList<>();
     }
 

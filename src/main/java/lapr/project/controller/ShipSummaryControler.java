@@ -11,7 +11,7 @@ public class ShipSummaryControler {
 
     public ShipSummaryControler() {
         this.company = App.getInstance().getCompany();
-        this.shipStore = company.getShipStore();
+        this.shipStore = company.getShipS();
     }
 
     public String getShipSummary(long mmsi){
