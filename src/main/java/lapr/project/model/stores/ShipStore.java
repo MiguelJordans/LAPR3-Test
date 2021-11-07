@@ -4,11 +4,11 @@ import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 import java.util.Iterator;
-=======
+
 import java.util.Date;
->>>>>>> 74b846f8bfc46f46d8bbe410d135c0baa5eac826
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -89,7 +89,7 @@ public class ShipStore {
     }
 
     public Ship getShipByMMSI(int mmsi) {
-<<<<<<< HEAD
+
 
         Iterable<Ship> ls = shipBinarySearchTree.inOrder();
         Iterator<Ship> iterShip = ls.iterator();
@@ -97,10 +97,10 @@ public class ShipStore {
         while(iterShip.hasNext()){
             Ship s = iterShip.next();
 
-=======
+
 
         List<Ship> lista = transformBSTintoList();
->>>>>>> 74b846f8bfc46f46d8bbe410d135c0baa5eac826
+
 
             if(s.getMmsi() == mmsi) return s;
         }
