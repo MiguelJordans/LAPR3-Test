@@ -1,21 +1,20 @@
 package lapr.project.model.stores;
 
+import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 
-import java.util.Iterator;
-
-import java.util.Date;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ShipStore {
 
     BinarySearchTree<Ship> shipBinarySearchTree;
     List<Ship> bstIntoListShip = new ArrayList<>();
+
 
     public ShipStore() {
         this.shipBinarySearchTree = new BinarySearchTree<>();
@@ -125,7 +124,7 @@ public class ShipStore {
                 if (mmsi == s.getMmsi()) {
 
                     sb
-                            .append("SHIP SUMMARY :[MMSI : " + s.getMmsi())
+                            .append("MMSI : " + s.getMmsi() + "\n")
                             .append(getShipSummaryStructure(s));
 
                 }
@@ -147,17 +146,18 @@ public class ShipStore {
 
 
         String returnString;
+        List<Ship> lShip = transformBSTintoList();
 
         try {
 
             StringBuilder sb = new StringBuilder();
 
-            for (Ship s : this.bstIntoListShip) {
+            for (Ship s : lShip) {
 
                 if (imo == s.getImo()) {
 
                     sb
-                            .append("SHIP SUMMARY :[IMO : " + s.getImo())
+                            .append("IMO : " + s.getImo() + "\n")
                             .append(getShipSummaryStructure(s));
 
                 }
@@ -179,17 +179,18 @@ public class ShipStore {
 
 
         String returnString;
+        List<Ship> lShip = transformBSTintoList();
 
         try {
 
             StringBuilder sb = new StringBuilder();
 
-            for (Ship s : this.bstIntoListShip) {
+            for (Ship s : lShip) {
 
-                if (callSign == s.getCallSign()) {
+                if (callSign.equals(s.getCallSign())) {
 
                     sb
-                            .append("SHIP SUMMARY :[Call Sign : " + s.getCallSign())
+                            .append("Call Sign : " + s.getCallSign() + "\n")
                             .append(getShipSummaryStructure(s));
 
                 }
@@ -209,101 +210,97 @@ public class ShipStore {
 
     public String getShipSummaryStructure(Ship s) {
 
+        Iterable<Position> dateIterable = s.getBinaryTreePosition().inOrder();
+        List<Position> positionList = new ArrayList<>();
+        dateIterable.iterator().forEachRemaining(positionList::add);
+
         StringBuilder sb = new StringBuilder();
 
         sb
-                .append(",Vessel name: " + s.getVesselType())
-                .append(",Start Base  Date Time: " + getFirstDate(s))
-                .append(",End base date time : " + getLastDate(s))
-                .append(",Total movement time: " + differenceBetweenDates(getFirstDate(s), getLastDate(s)))
-                .append(",Total number of movements : " + getTotalNumberOfMovements(s))
-                .append(",Max SOG : " + getMaxSOG(s))
-                .append(",Mean SOG : " + getMeanSOG(s))
-                .append(",Max COG : " + getMaxCOG(s))
-                .append(",Mean COG : " + getMeanCOG(s))
-                .append(",Departure Latitude : " + getDepartureLatitude(s))
-                .append(",Departure Longitude : " + getDepartureLongitude(s))
-                .append(",Arrival Latitude : " + getArrivalLatitude(s))
-                .append(",Arrival Longitude : " + getArrivalLongitude(s))
-                .append(",Travelled Distance : Travelled Distance")
-                .append(",Delta Distance : Delta Distance");
+                .append("Vessel name: " + s.getVesselType() + "\n")
+                .append("Start Base  Date Time: " + getFirstDate(positionList) + "\n")
+                .append("End base date time : " + getLastDate(positionList) + "\n")
+                .append("Total movement time: " + differenceBetweenDates(getFirstDate(positionList), getLastDate(positionList)) + " minutes" + "\n")
+                .append("Total number of movements : " + getTotalNumberOfMovements(positionList) + "\n")
+                .append("Max SOG : " + getMaxSOG(positionList) + "\n")
+                .append("Mean SOG : " + getMeanSOG(positionList) + "\n")
+                .append("Max COG : " + getMaxCOG(positionList) + "\n")
+                .append("Mean COG : " + getMeanCOG(positionList) + "\n")
+                .append("Departure Latitude : " + getDepartureLatitude(positionList) + "\n")
+                .append("Departure Longitude : " + getDepartureLongitude(positionList) + "\n")
+                .append("Arrival Latitude : " + getArrivalLatitude(positionList) + "\n")
+                .append("Arrival Longitude : " + getArrivalLongitude(positionList) + "\n")
+                .append("Travelled Distance : Travelled Distance" + "\n")
+                .append("Delta Distance : Delta Distance" + "\n");
 
         return sb.toString();
 
     }
 
-    private Date getFirstDate(Ship s) {
-        return s.getPosDate().keySet().iterator().next();
+    private LocalDateTime getFirstDate(List<Position> positionList) {
+        return positionList.get(0).getDate();
     }
 
-    private Date getLastDate(Ship s) {
-        Date lastDate = null;
-        while (s.getPosDate().keySet().iterator().hasNext()) {
-            lastDate = s.getPosDate().keySet().iterator().next();
+    private LocalDateTime getLastDate(List<Position> positionList) {
+        return positionList.get(positionList.size() - 1).getDate();
+    }
+
+    private long differenceBetweenDates(LocalDateTime first, LocalDateTime second) {
+
+        Date firstDate = java.util.Date.from(first.atZone(ZoneId.systemDefault()).toInstant());
+        Date secondDate = java.util.Date.from(second.atZone(ZoneId.systemDefault()).toInstant());
+
+        long diffInMillies = Math.abs(firstDate.getTime() - secondDate.getTime());
+        return (TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS));
+    }
+
+    private int getTotalNumberOfMovements(List<Position> positionList) {
+
+        return positionList.size();
+
+    }
+
+    private long getMaxSOG(List<Position> positionList) {
+
+        long maxSog = 0;
+
+        for (Position ps1 : positionList) {
+            if (ps1.getSog() > maxSog) maxSog = ps1.getSog();
         }
-        return lastDate;
+        return maxSog;
     }
 
-    private long differenceBetweenDates(Date first, Date second) {
-        long diffInMillies = Math.abs(second.getTime() - first.getTime());
-        return (TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS));
-    }
-
-    private int getTotalNumberOfMovements(Ship s) {
-
-        int count = 0;
-
-        while (s.getPosDate().keySet().iterator().hasNext()) {
-            count++;
-        }
-
-        if (count % 2 == 0) return count;
-        else return count - 1;
-
-    }
-
-    private long getMaxSOG(Ship s) {
-
-        long maxSOG = 0;
-
-        for (Date dateTime : s.getPosDate().keySet()) {
-            if (maxSOG < s.getPosDate().get(dateTime).getSog()) maxSOG = s.getPosDate().get(dateTime).getSog();
-        }
-
-        return maxSOG;
-    }
-
-    private long getMeanSOG(Ship s) {
+    private long getMeanSOG(List<Position> positionList) {
 
         long meanSOG = 0;
         int count = 0;
 
-        for (Date dateTime : s.getPosDate().keySet()) {
-            meanSOG += s.getPosDate().get(dateTime).getSog();
+        for (Position s : positionList) {
+            meanSOG += s.getSog();
             count++;
         }
 
         return (meanSOG / count);
     }
 
-    private long getMaxCOG(Ship s) {
+    private long getMaxCOG(List<Position> positionList) {
 
-        long maxCOG = 0;
+        long maxCog = 0;
 
-        for (Date dateTime : s.getPosDate().keySet()) {
-            if (maxCOG < s.getPosDate().get(dateTime).getCog()) maxCOG = s.getPosDate().get(dateTime).getCog();
+        for (Position ps1 : positionList) {
+            if (ps1.getCog() > maxCog) maxCog = ps1.getCog();
         }
-
-        return maxCOG;
+        return maxCog;
     }
 
-    private long getMeanCOG(Ship s) {
+    private long getMeanCOG(List<Position> positionList) {
+
 
         long meanCOG = 0;
         int count = 0;
 
-        for (Date dateTime : s.getPosDate().keySet()) {
-            meanCOG += s.getPosDate().get(dateTime).getCog();
+        for (Position s : positionList) {
+            meanCOG += s.getCog();
             count++;
         }
 
@@ -314,20 +311,20 @@ public class ShipStore {
         return shipBinarySearchTree;
     }
 
-    private long getDepartureLatitude(Ship s) {
-        return (s.getPosDate().get(getFirstDate(s)).getLatitude());
+    private long getDepartureLatitude(List<Position> positionList) {
+        return (positionList.get(0).getLatitude());
     }
 
-    private long getDepartureLongitude(Ship s) {
-        return (s.getPosDate().get(getFirstDate(s)).getLongitude());
+    private long getDepartureLongitude(List<Position> positionList) {
+        return (positionList.get(positionList.size() - 1).getLatitude());
     }
 
-    private long getArrivalLatitude(Ship s) {
-        return (s.getPosDate().get(getLastDate(s)).getLatitude());
+    private long getArrivalLatitude(List<Position> positionList) {
+        return (positionList.get(0).getLongitude());
     }
 
-    private long getArrivalLongitude(Ship s) {
-        return (s.getPosDate().get(getLastDate(s)).getLongitude());
+    private long getArrivalLongitude(List<Position> positionList) {
+        return (positionList.get(positionList.size() - 1).getLongitude());
     }
 
 }

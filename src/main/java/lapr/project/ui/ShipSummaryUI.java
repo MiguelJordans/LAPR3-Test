@@ -14,10 +14,10 @@ public class ShipSummaryUI implements Runnable {
     @Override
     public void run() {
 
-        int option = 0;
-        long mmsi = 0;
-        long imo = 0;
-        String callSign = null;
+        int option;
+        long mmsi;
+        long imo;
+        String callSign;
 
         String shipSummary = null;
 
@@ -25,6 +25,7 @@ public class ShipSummaryUI implements Runnable {
             try {
                 System.out.printf(" Option 1 : Get Ship Summary by MMSI \n Option 2 : Get Ship Summary by IMO \n Option 3 : Get Ship Summary by Call Sign\n");
                 option = Utils.readIntegerFromConsole("Please choose one of the valid options:");
+                if (option > 3) throw new IllegalArgumentException();
             } catch (IllegalArgumentException e) {
                 System.out.println("Please enter a valid option!");
                 option = 0;
@@ -35,7 +36,7 @@ public class ShipSummaryUI implements Runnable {
             case 1:
                 do {
                     try {
-                        mmsi = Utils.readIntegerFromConsole("Please enter the Ship's desired MMSI:");
+                        mmsi = Utils.readIntegerFromConsole("Please enter the desired MMSI:");
                     } catch (NumberFormatException e) {
                         System.out.println("Please enter a valid MMSI!");
                         mmsi = 0;
@@ -70,7 +71,7 @@ public class ShipSummaryUI implements Runnable {
                 break;
         }
 
-        if (shipSummary != null) System.out.println("The Ship's Summary its : " + shipSummary);
+        if (shipSummary != null) System.out.println("Ship's summary : " + "\n" + shipSummary);
 
     }
 }

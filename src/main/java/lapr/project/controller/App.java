@@ -111,12 +111,16 @@ public class App {
         shipTest1.addNewPosMessage(new Date("Dec 31 1997 23:37:50"), posgeral2);*/
         //company.getShipStore().getlShip().add(shipTest1);
         company.getShipStore().addShip(shipTest1);
-         //   company.getShipStore().getlShip().add(shipTest2);
+        //   company.getShipStore().getlShip().add(shipTest2);
         shipTest1.addPosition(posgeral);
         shipTest1.addPosition(posgeral2);
 
-        Ship shipTest2 = new Ship(222222222, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+
+        Ship shipTest2 = new Ship(222222222, "name", 1121111, 1, 1, "B", "A", 1, 1, 1, 1);
         company.getShipStore().addShip(shipTest2);
+
+        shipTest2.addPosition(posgeral);
+        shipTest2.addPosition(posgeral2);
 
 
     }
