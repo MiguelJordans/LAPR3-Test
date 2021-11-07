@@ -3,6 +3,10 @@ package lapr.project.controller;
 import lapr.project.model.Company;
 import lapr.project.model.Ship;
 import lapr.project.model.stores.ShipStore;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74b846f8bfc46f46d8bbe410d135c0baa5eac826
 
 public class PositionalMessageController {
 
