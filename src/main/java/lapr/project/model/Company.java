@@ -10,7 +10,6 @@ public class Company {
 
 
     //Ship Store
-    private lapr.project.model.stores.ShipStore shipStore;
     private ShipStore shipS;
 
 
@@ -25,7 +24,6 @@ public class Company {
 
             this.authFacade = new AuthFacade();
             this.orgRoleStore = new OrgRoleStore();
-            this.shipStore = new lapr.project.model.stores.ShipStore();
             this.shipS = new ShipStore();
         }
 
@@ -37,11 +35,7 @@ public class Company {
         return this.orgRoleStore;
     }
 
-    public lapr.project.model.stores.ShipStore getShipStore() {
-        return this.shipStore;
-    }
-
-    public ShipStore getShipS(){return shipS;}
+    public ShipStore getShipStore(){return shipS;}
 }
 
 

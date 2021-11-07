@@ -171,10 +171,6 @@ public class Ship implements Comparable<Ship> {
         return true;
     }
 
-
-
-
-
     public String writeAllPos() {
 
         String positionalMessage = "Positional Messages:";

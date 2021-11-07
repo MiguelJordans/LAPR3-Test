@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class ShipStore {
 
     BinarySearchTree<Ship> shipBinarySearchTree;
+    List<Ship> bstIntoListShip = new ArrayList<>();
 
     public ShipStore() {
         this.shipBinarySearchTree = new BinarySearchTree<>();
@@ -94,25 +95,26 @@ public class ShipStore {
         Iterable<Ship> ls = shipBinarySearchTree.inOrder();
         Iterator<Ship> iterShip = ls.iterator();
 
-        while(iterShip.hasNext()){
+        while (iterShip.hasNext()) {
             Ship s = iterShip.next();
 
 
+            List<Ship> lista = transformBSTintoList();
 
-        List<Ship> lista = transformBSTintoList();
 
-
-            if(s.getMmsi() == mmsi) return s;
+            if (s.getMmsi() == mmsi) return s;
         }
 
         return null;
     }
 
-    public String getShipSummary(long mmsi) {
 
-        List<Ship> lShip = transformBSTintoList();
+    public String getShipSummaryByMMSI(long mmsi) {
+
 
         String returnString;
+        List<Ship> lShip = transformBSTintoList();
+
 
         try {
 
@@ -124,21 +126,7 @@ public class ShipStore {
 
                     sb
                             .append("SHIP SUMMARY :[MMSI : " + s.getMmsi())
-                            .append(",Vessel name: " + s.getVesselType())
-                            .append(",Start Base  Date Time: " + getFirstDate(s))
-                            .append(",End base date time : " + getLastDate(s))
-                            .append(",Total movement time: " + differenceBetweenDates(getFirstDate(s), getLastDate(s)))
-                            .append(",Total number of movements : " + getTotalNumberOfMovements(s))
-                            .append(",Max SOG : " + getMaxSOG(s))
-                            .append(",Mean SOG : " + getMeanSOG(s))
-                            .append(",Max COG : " + getMaxCOG(s))
-                            .append(",Mean COG : " + getMeanCOG(s))
-                            .append(",Departure Latitude : " + getDepartureLatitude(s))
-                            .append(",Departure Longitude : " + getDepartureLongitude(s))
-                            .append(",Arrival Latitude : " + getArrivalLatitude(s))
-                            .append(",Arrival Longitude : " + getArrivalLongitude(s))
-                            .append(",Travelled Distance : Travelled Distance")
-                            .append(",Delta Distance : Delta Distance");
+                            .append(getShipSummaryStructure(s));
 
                 }
             }
@@ -153,6 +141,95 @@ public class ShipStore {
             System.out.println(ex.getMessage()); //Depois fazer um logger
             return null;
         }
+    }
+
+    public String getShipSummaryByIMO(long imo) {
+
+
+        String returnString;
+
+        try {
+
+            StringBuilder sb = new StringBuilder();
+
+            for (Ship s : this.bstIntoListShip) {
+
+                if (imo == s.getImo()) {
+
+                    sb
+                            .append("SHIP SUMMARY :[IMO : " + s.getImo())
+                            .append(getShipSummaryStructure(s));
+
+                }
+            }
+
+            returnString = sb.toString();
+
+            if (returnString == null || returnString.isEmpty())
+                throw new IllegalArgumentException("Invalid Ship, please enter another one");
+            else return returnString;
+
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage()); //Depois fazer um logger
+            return null;
+        }
+    }
+
+    public String getShipSummaryByCallSign(String callSign) {
+
+
+        String returnString;
+
+        try {
+
+            StringBuilder sb = new StringBuilder();
+
+            for (Ship s : this.bstIntoListShip) {
+
+                if (callSign == s.getCallSign()) {
+
+                    sb
+                            .append("SHIP SUMMARY :[Call Sign : " + s.getCallSign())
+                            .append(getShipSummaryStructure(s));
+
+                }
+            }
+
+            returnString = sb.toString();
+
+            if (returnString == null || returnString.isEmpty())
+                throw new IllegalArgumentException("Invalid Ship, please enter another one");
+            else return returnString;
+
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage()); //Depois fazer um logger
+            return null;
+        }
+    }
+
+    public String getShipSummaryStructure(Ship s) {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb
+                .append(",Vessel name: " + s.getVesselType())
+                .append(",Start Base  Date Time: " + getFirstDate(s))
+                .append(",End base date time : " + getLastDate(s))
+                .append(",Total movement time: " + differenceBetweenDates(getFirstDate(s), getLastDate(s)))
+                .append(",Total number of movements : " + getTotalNumberOfMovements(s))
+                .append(",Max SOG : " + getMaxSOG(s))
+                .append(",Mean SOG : " + getMeanSOG(s))
+                .append(",Max COG : " + getMaxCOG(s))
+                .append(",Mean COG : " + getMeanCOG(s))
+                .append(",Departure Latitude : " + getDepartureLatitude(s))
+                .append(",Departure Longitude : " + getDepartureLongitude(s))
+                .append(",Arrival Latitude : " + getArrivalLatitude(s))
+                .append(",Arrival Longitude : " + getArrivalLongitude(s))
+                .append(",Travelled Distance : Travelled Distance")
+                .append(",Delta Distance : Delta Distance");
+
+        return sb.toString();
+
     }
 
     private Date getFirstDate(Ship s) {
@@ -233,7 +310,9 @@ public class ShipStore {
         return (meanCOG / count);
     }
 
-    public BinarySearchTree<Ship> getShipBinarySearchTree(){ return shipBinarySearchTree;}
+    public BinarySearchTree<Ship> getShipBinarySearchTree() {
+        return shipBinarySearchTree;
+    }
 
     private long getDepartureLatitude(Ship s) {
         return (s.getPosDate().get(getFirstDate(s)).getLatitude());

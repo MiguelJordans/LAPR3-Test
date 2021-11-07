@@ -13,6 +13,20 @@ import java.util.logging.Logger;
 
 public class Utils {
 
+    public static int readIntegerFromConsole(String prompt) {
+        do {
+            try {
+                String input = readLineFromConsole(prompt);
+
+                int value = Integer.parseInt(input);
+
+                return value;
+            } catch (NumberFormatException ex) {
+                throw new NumberFormatException();
+            }
+        } while (true);
+    }
+
     public static String readLineFromConsole(String prompt) {
         try {
             System.out.println("\n" + prompt);
