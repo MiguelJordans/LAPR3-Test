@@ -12,6 +12,8 @@ public class DistanceCalculation {
 
     public static double distanceTo(Position pos, Position pos2) {
 
+        if(pos == null && pos2 == null) return 0;
+
         double R = 6371;
         double lat = Math.toRadians((double) pos.getLatitude());
         double longi = Math.toRadians((double) pos.getLongitude());
@@ -29,6 +31,8 @@ public class DistanceCalculation {
     }
 
     public static double traveledDistanceBaseDateTime(Ship ship, Date initiald, Date finald) {
+
+        if(ship == null && initiald == null && initiald == null && initiald.equals(finald)) return 0;
 
         double d = 0;
         List<Position> positionList = new ArrayList<>();

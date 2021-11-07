@@ -1,5 +1,8 @@
 package lapr.project.model;
 
+import lapr.project.shared.BinarySearchTree;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Ship implements Comparable<Ship> {
@@ -20,6 +23,7 @@ public class Ship implements Comparable<Ship> {
     //dados dinamicos
     Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
     List<Position> Date;
+    BinarySearchTree<Position> binaryTreePosition;
 
     public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
         checkIMO(imo);
@@ -39,6 +43,7 @@ public class Ship implements Comparable<Ship> {
 
         this.posDate = new HashMap<>();
         Date = new ArrayList<>();
+        binaryTreePosition = new BinarySearchTree<>();
     }
 
     //Getters
@@ -95,11 +100,17 @@ public class Ship implements Comparable<Ship> {
         return Date;
     }
 
+    public BinarySearchTree<Position> getBinaryTreePosition() {
+        return binaryTreePosition;
+    }
+
+
+    //Setter
+
     public void setDate(List<Position> date) {
         Date = date;
     }
 
-    //Setters
     public void setMmsi(int mmsi) {
         this.mmsi = mmsi;
     }
@@ -160,31 +171,49 @@ public class Ship implements Comparable<Ship> {
         return true;
     }
 
-    public boolean addNewPosMessage(Date date, Position pos){
 
-        if(date != null && pos != null){
-            posDate.put(date,pos);
-            return true;
-        }
-        return false;
-    }
 
-    public void organizeDatePos() {
 
-        this.posDate = new TreeMap<>(posDate);
-    }
 
     public String writeAllPos() {
 
         String positionalMessage = "Positional Messages:";
 
-        for (Date dateTime : posDate.keySet()) {
-            positionalMessage = positionalMessage + "\n" + dateTime + ": " + posDate.get(dateTime).toString();
+        Iterable<Position> itpos = binaryTreePosition.inOrder();
+        List<Position> posList = new ArrayList<>();
+        itpos.iterator().forEachRemaining(posList::add);
+
+
+        for (Position pos : posList) {
+            positionalMessage = positionalMessage + "\n" + pos.getDate() + ": " + pos.toString();
         }
 
         return positionalMessage;
     }
 
+
+    public boolean addPosition(Position pos){
+
+        if(pos == null) return false;
+        else{
+            this.binaryTreePosition.insert(pos);
+            return true;
+        }
+    }
+
+    public Position getPositionByLocalDateTime(LocalDateTime dt){
+
+        Iterable<Position> itpos = binaryTreePosition.inOrder();
+
+        List<Position> posList = new ArrayList<>();
+        itpos.iterator().forEachRemaining(posList::add);
+
+        for(Position pos : posList){
+            if(pos.getDate().isEqual(dt)) return pos;
+        }
+
+        return null;
+    }
 
     @Override
     public String toString() {
@@ -206,6 +235,10 @@ public class Ship implements Comparable<Ship> {
 
     @Override
     public int compareTo(Ship o) {
-        return 0;
+
+        if(this.mmsi > o.getMmsi()) return 1;
+        else if(this.mmsi < o.getMmsi()) return -1;
+        else return 0;
+
     } //Falta implementar isto
 }

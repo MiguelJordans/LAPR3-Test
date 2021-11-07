@@ -4,6 +4,7 @@ import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ShipStore {
@@ -23,15 +24,17 @@ public class ShipStore {
     }
 
     public Ship getShipByMMSI(int mmsi) {
+
         Iterable<Ship> ls = shipBinarySearchTree.inOrder();
+        Iterator<Ship> iterShip = ls.iterator();
 
-        List<Ship> lista = new ArrayList<>();
-        ls.iterator().forEachRemaining(lista::add);
+        while(iterShip.hasNext()){
+            Ship s = iterShip.next();
 
-        for (Ship s : lista) {
-            if (s.getMmsi() == mmsi)
-                return s;
+
+            if(s.getMmsi() == mmsi) return s;
         }
+
         return null;
     }
 

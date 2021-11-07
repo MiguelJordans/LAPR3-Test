@@ -2,7 +2,7 @@ package lapr.project.model;
 
 import java.time.LocalDateTime;
 
-public class Position {
+public class Position implements Comparable<Position> {
 
     long latitude;
     long longitude;
@@ -77,6 +77,15 @@ public class Position {
                 ", sog=" + sog +
                 ", cog=" + cog +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Position o) {
+
+        if(this.getDate().isBefore(o.getDate())) return -1;
+        else if(this.getDate().isAfter(o.getDate())) return 1;
+        else return 0;
     }
 }
 
