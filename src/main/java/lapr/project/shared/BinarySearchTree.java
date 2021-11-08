@@ -43,8 +43,24 @@ public class BinarySearchTree<E extends Comparable<E>> implements BSTInterface<E
      * subclasses avoiding recoding.
      * So its access level is protected
      */
+
+    public E find(E element) {
+        return find(root, element).getElement();
+    }
+
     protected Node<E> find(Node<E> node, E element) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (node == null) {
+            return null;
+        }
+
+
+        if (node.getElement().compareTo(element) > 0) {
+            return find(node.getLeft(), element);
+        }
+        if (node.getElement().compareTo(element) == 0) {
+            return node;
+        }
+        return find(node.getRight(), element);
     }
 
     /*
@@ -157,6 +173,16 @@ public class BinarySearchTree<E extends Comparable<E>> implements BSTInterface<E
         if (node == null) return null;
         if (node.getLeft() == null) return node.getElement();
         return smallestElement(node.getLeft());
+    }
+
+    public E biggestElement() {
+        return biggestElement(root);
+    }
+
+    protected E biggestElement(Node<E> node) {
+        if (node == null) return null;
+        if (node.getRight() == null) return node.getElement();
+        return biggestElement(node.getRight());
     }
 
     /*

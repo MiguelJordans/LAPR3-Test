@@ -16,7 +16,7 @@ public class ShipSummaryUI implements Runnable {
 
         int option;
         long mmsi;
-        long imo;
+        String imo;
         String callSign;
 
         String shipSummary = null;
@@ -47,12 +47,12 @@ public class ShipSummaryUI implements Runnable {
             case 2:
                 do {
                     try {
-                        imo = Utils.readIntegerFromConsole("Please enter the desired Ship IMO:");
+                        imo = Utils.readLineFromConsole("Please enter the desired Ship IMO:");
                     } catch (IllegalArgumentException e) {
                         System.out.println("Please enter a valid IMO!");
-                        imo = 0;
+                        imo = null;
                     }
-                } while (imo == 0);
+                } while (imo == null);
                 shipSummary = shipSummaryControler.getShipSummaryByIMO(imo);
                 break;
             case 3:

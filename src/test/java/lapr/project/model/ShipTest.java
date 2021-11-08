@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ShipTest {
 
 
-    Ship shipgeral = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+    Ship shipgeral = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
 
     LocalDateTime dateTime =LocalDateTime.now();
 
@@ -26,8 +26,8 @@ public class ShipTest {
         //Arrange
         //Act
         try {
-            Ship ship1 = new Ship(111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
-            Ship ship2 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+            Ship ship1 = new Ship(111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
+            Ship ship2 = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
 
         } catch (IllegalArgumentException ex) {
             //Assert
@@ -43,8 +43,8 @@ public class ShipTest {
         //Arrange
         //Act
         try {
-            Ship ship1 = new Ship(111111111, "name", 11, 1, 1, "A", "A", 1, 1, 1, 1);
-            Ship ship2 = new Ship(111111111, "name", 1111111, 1, 1, "A", "A", 1, 1, 1, 1);
+            Ship ship1 = new Ship(111111111, "name", "IMO11", 1, 1, "A", "A", 1, 1, 1, 1);
+            Ship ship2 = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
         } catch (IllegalArgumentException ex) {
             //Assert
             assertEquals(ex.getMessage(), "IMO code must have 7 digits!");
@@ -96,7 +96,7 @@ public class ShipTest {
         //Arrange
         //Act
         //Assert
-        assertEquals(1111111, shipgeral.getImo());
+        assertEquals("IMO1111111", shipgeral.getImo());
     }
 
     @Test
@@ -104,10 +104,10 @@ public class ShipTest {
 
         //Arrange
         //Act
-        shipgeral.setImo(2222222);
+        shipgeral.setImo("IMO1111111");
 
         //Assert
-        assertEquals(2222222, shipgeral.getImo());
+        assertEquals("IMO1111111", shipgeral.getImo());
     }
 
     @Test

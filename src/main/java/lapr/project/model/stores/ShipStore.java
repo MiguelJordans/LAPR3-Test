@@ -108,7 +108,7 @@ public class ShipStore {
     }
 
 
-    public String getShipSummaryByMMSI(long mmsi) {
+    public String getShipSummaryByMMSI(double mmsi) {
 
 
         String returnString;
@@ -142,7 +142,7 @@ public class ShipStore {
         }
     }
 
-    public String getShipSummaryByIMO(long imo) {
+    public String getShipSummaryByIMO(String imo) {
 
 
         String returnString;
@@ -154,7 +154,7 @@ public class ShipStore {
 
             for (Ship s : lShip) {
 
-                if (imo == s.getImo()) {
+                if (imo.equals(s.getImo())) {
 
                     sb
                             .append("IMO : " + s.getImo() + "\n")
@@ -210,7 +210,7 @@ public class ShipStore {
 
     public String getShipSummaryStructure(Ship s) {
 
-        Iterable<Position> dateIterable = s.getBinaryTreePosition().inOrder();
+        Iterable<Position> dateIterable = s.getPosDate().getOrderList();
         List<Position> positionList = new ArrayList<>();
         dateIterable.iterator().forEachRemaining(positionList::add);
 
@@ -272,9 +272,9 @@ public class ShipStore {
 
     }
 
-    public long getMaxSOG(List<Position> positionList) {
+    public double getMaxSOG(List<Position> positionList) {
 
-        long maxSog = 0;
+        double maxSog = 0;
 
         for (Position ps1 : positionList) {
             if (ps1.getSog() > maxSog) maxSog = ps1.getSog();
@@ -282,10 +282,10 @@ public class ShipStore {
         return maxSog;
     }
 
-    public long getMeanSOG(List<Position> positionList) {
+    public double getMeanSOG(List<Position> positionList) {
 
         try {
-            long meanSOG = 0;
+            double meanSOG = 0;
             int count = 0;
 
             for (Position s : positionList) {
@@ -299,9 +299,9 @@ public class ShipStore {
         }
     }
 
-    public long getMaxCOG(List<Position> positionList) {
+    public double getMaxCOG(List<Position> positionList) {
 
-        long maxCog = 0;
+        double maxCog = 0;
 
         for (Position ps1 : positionList) {
             if (ps1.getCog() > maxCog) maxCog = ps1.getCog();
@@ -309,11 +309,11 @@ public class ShipStore {
         return maxCog;
     }
 
-    public long getMeanCOG(List<Position> positionList) {
+    public double getMeanCOG(List<Position> positionList) {
 
         try {
 
-            long meanCOG = 0;
+            double meanCOG = 0;
             int count = 0;
 
             for (Position s : positionList) {
@@ -331,7 +331,7 @@ public class ShipStore {
         return shipBinarySearchTree;
     }
 
-    public long getDepartureLatitude(List<Position> positionList) {
+    public double getDepartureLatitude(List<Position> positionList) {
         try {
             return (positionList.get(0).getLatitude());
         } catch (IndexOutOfBoundsException e) {
@@ -339,7 +339,7 @@ public class ShipStore {
         }
     }
 
-    public long getDepartureLongitude(List<Position> positionList) {
+    public double getDepartureLongitude(List<Position> positionList) {
         try {
             return (positionList.get(positionList.size() - 1).getLatitude());
         } catch (IndexOutOfBoundsException e) {
@@ -347,7 +347,7 @@ public class ShipStore {
         }
     }
 
-    public long getArrivalLatitude(List<Position> positionList) {
+    public double getArrivalLatitude(List<Position> positionList) {
         try {
             return (positionList.get(0).getLongitude());
         } catch (IndexOutOfBoundsException e) {
@@ -355,7 +355,7 @@ public class ShipStore {
         }
     }
 
-    public long getArrivalLongitude(List<Position> positionList) {
+    public double getArrivalLongitude(List<Position> positionList) {
         try {
             return (positionList.get(positionList.size() - 1).getLongitude());
         } catch (IndexOutOfBoundsException e) {

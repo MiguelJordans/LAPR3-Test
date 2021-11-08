@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class Position implements Comparable<Position> {
 
-    long latitude;
-    long longitude;
-    long heading;
-    long sog;
-    long cog;
+    double latitude;
+    double longitude;
+    double heading;
+    double sog;
+    double cog;
     LocalDateTime date;
 
-    public Position(long latitude, long longitude, long heading, long sog, long cog, LocalDateTime date) {
+    public Position(double latitude, double longitude, double heading, double sog, double cog, LocalDateTime date) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.heading = heading;
@@ -20,23 +20,23 @@ public class Position implements Comparable<Position> {
         this.date = date;
     }
 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public long getHeading() {
+    public double getHeading() {
         return heading;
     }
 
-    public long getSog() {
+    public double getSog() {
         return sog;
     }
 
-    public long getCog() {
+    public double getCog() {
         return cog;
     }
 
@@ -48,23 +48,23 @@ public class Position implements Comparable<Position> {
         this.date = date;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public void setHeading(long heading) {
+    public void setHeading(double heading) {
         this.heading = heading;
     }
 
-    public void setSog(long sog) {
+    public void setSog(double sog) {
         this.sog = sog;
     }
 
-    public void setCog(long cog) {
+    public void setCog(double cog) {
         this.cog = cog;
     }
 

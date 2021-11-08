@@ -17,7 +17,7 @@ public class ShipSummaryControler {
         return shipStore.getShipSummaryByMMSI(mmsi);
     }
 
-    public String getShipSummaryByIMO(long imo) {
+    public String getShipSummaryByIMO(String imo) {
         return shipStore.getShipSummaryByIMO(imo);
     }
 

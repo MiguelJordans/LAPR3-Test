@@ -37,13 +37,6 @@ public class DistanceCalculation {
         Date initiald = java.sql.Timestamp.valueOf(localinitiald);
         Date finald = java.sql.Timestamp.valueOf(localfinald);
 
-
-
-
-
-
-
-
         double d = 0;
         List<Position> positionList = new ArrayList<>();
 
@@ -53,10 +46,8 @@ public class DistanceCalculation {
         Position sv1;
         Position sv2;
 
-        Iterable<Position> posIterable = ship.getBinaryTreePosition().inOrder();
+        Iterable<Position> posIterable = ship.getPosDate().getOrderList();
         Iterator<Position> posIterator = posIterable.iterator();
-
-
 
 
         while (initiald.before(finald)) {
@@ -76,9 +67,9 @@ public class DistanceCalculation {
             while (posIterator.hasNext()) {
 
                 Position pos = posIterator.next();
-                Date posDate =  java.sql.Timestamp.valueOf(pos.getDate());
+                Date posDate = java.sql.Timestamp.valueOf(pos.getDate());
 
-                if (!posDate.before(initiald) && !posDate.after(initiald) ) {
+                if (!posDate.before(initiald) && !posDate.after(initiald)) {
                     positionList.add(pos);
                 }
 

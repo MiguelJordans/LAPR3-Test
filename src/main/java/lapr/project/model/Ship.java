@@ -75,7 +75,7 @@ public class Ship implements Comparable<Ship> {
     }
 
     public Position createPosition(LocalDateTime time, double latitude, double longitude, double heading, double sog, double cog) {
-        return new Position(time, latitude, longitude, heading, sog, cog);
+        return new Position(latitude, longitude, heading, sog, cog, time);
     }
 
     public void insertPosition(Position position) {
@@ -190,12 +190,12 @@ public class Ship implements Comparable<Ship> {
         if (mmsi > 99999999 && mmsi < 1000000000) {
             return;
         }
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException("MMSI code must have 9 digits!");
     }
 
     public void checkIMO(String imo) {
         if (imo.length() != 10 || (!imo.startsWith("IMO") && StringUtils.isNumeric(imo.substring(2, imo.length() - 1)))) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("IMO code must have 7 digits!");
         }
     }
 
