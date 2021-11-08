@@ -15,17 +15,17 @@ public class Ship implements Comparable<Ship> {
     long genPowerOutput;
     String callSign;
     String vesselType;
-    long length;
-    long width;
-    long capacity;
-    long draft;
+    double length;
+    double width;
+    double capacity;
+    double draft;
 
     //dados dinamicos
     Map<Date, Position> posDate; // DateTime is the key, which will save the specific position of its time.
     List<Position> Date;
     BinarySearchTree<Position> binaryTreePosition;
 
-    public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, long length, long width, long capacity, long draft) {
+    public Ship(int mmsi, String name, int imo, int numGen, long genPowerOutput, String callSign, String vesselType, double length, double width, double capacity, double draft) {
         checkIMO(imo);
         checkMMSI(mmsi);
 
@@ -71,19 +71,19 @@ public class Ship implements Comparable<Ship> {
         return vesselType;
     }
 
-    public long getLength() {
+    public double getLength() {
         return length;
     }
 
-    public long getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public long getCapacity() {
+    public double getCapacity() {
         return capacity;
     }
 
-    public long getDraft() {
+    public double getDraft() {
         return draft;
     }
 
