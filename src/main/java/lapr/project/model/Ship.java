@@ -269,5 +269,4 @@ public class Ship implements Comparable<Ship> {
             return 0;
         }
     }
-
 }
