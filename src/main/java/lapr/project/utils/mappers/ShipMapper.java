@@ -8,14 +8,14 @@ import java.util.List;
 
 public class ShipMapper {
 
-    private ShipDTO toDTO(Ship ship, int totalNumberMovements) {
-        return new ShipDTO(ship.getMmsi(), totalNumberMovements, ship.getTravelledDistance(), ship.getDeltaDistance());
+    private ShipDTO toDTO(Ship ship) {
+        return new ShipDTO(ship.getMmsi(), ship.getTotalNumberOfMovements(ship), ship.getTravelledDistance(), ship.getDeltaDistance());
     }
 
-    public List<ShipDTO> toDTO(List<Ship> sList, int totalNumberMovements) {
+    public List<ShipDTO> toDTO(List<Ship> sList) {
         List<ShipDTO> shipDTOS = new ArrayList<>();
         for (Ship ship : sList) {
-            shipDTOS.add(this.toDTO(ship, totalNumberMovements));
+            shipDTOS.add(this.toDTO(ship));
         }
         return shipDTOS;
     }

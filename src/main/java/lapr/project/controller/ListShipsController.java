@@ -3,6 +3,8 @@ package lapr.project.controller;
 import lapr.project.model.Company;
 import lapr.project.model.Ship;
 import lapr.project.model.stores.ShipStore;
+import lapr.project.utils.mappers.ShipMapper;
+import lapr.project.utils.mappers.dto.ShipDTO;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +16,7 @@ public class ListShipsController {
     Company company;
     ShipStore shipStore;
     List<Ship> shipList;
+    ShipMapper shipMapper;
 
     public ListShipsController() {
         this.company = App.getInstance().getCompany();
@@ -26,7 +29,7 @@ public class ListShipsController {
         return shipList;
     }
 
-    public String sortedList() {
+    public List<Ship> sortedList() {
         Comparator<Ship> comparator1 = (o1, o2) -> {
 
             double x1 = o1.getTravelledDistance();
@@ -54,14 +57,29 @@ public class ListShipsController {
         };
         shipList.sort(comparator1);
 
-        return shipList.toString();
+        return shipList;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
+        System.out.println(getShipListDTO());
+
         for (Ship ship : this.shipList) {
-            sb.append("MMSI: ").append(ship.getMmsi()).append("; Total number of movements: ").append(shipStore.getTotalNumberOfMovements(ship)).append("; Travelled Distance: ").append(ship.getTravelledDistance()).append("; Delta Distance: ").append(ship.getDeltaDistance()).append("\n");
+      //      sb.append("MMSI: ").append(ship.getMmsi()).append("; Total number of movements: ").append(shipStore.getTotalNumberOfMovements(ship)).append("; Travelled Distance: ").append(ship.getTravelledDistance()).append("; Delta Distance: ").append(ship.getDeltaDistance()).append("\n");
         }
         return sb.toString();
     }
+
+    public List<ShipDTO> getShipListDTO() {
+
+        this.shipMapper = new ShipMapper();
+
+        List<Ship> sShips = sortedList();
+
+        return shipMapper.toDTO(sShips);
+
+    }
+
+
 }

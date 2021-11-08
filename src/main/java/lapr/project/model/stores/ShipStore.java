@@ -221,7 +221,7 @@ public class ShipStore {
                 .append("Start Base date Time: " + getFirstDate(s) + "\n")
                 .append("End base date time : " + getLastDate(s) + "\n")
                 .append("Total movement time: " + differenceBetweenDates(getFirstDate(s), getLastDate(s)) + " minutes" + "\n")
-                .append("Total number of movements : " + getTotalNumberOfMovements(s) + "\n")
+                .append("Total number of movements : " + s.getTotalNumberOfMovements(s) + "\n")
                 .append("Max SOG : " + getMaxSOG(s) + "\n")
                 .append("Mean SOG : " + getMeanSOG(s) + "\n")
                 .append("Max COG : " + getMaxCOG(s) + "\n")
@@ -265,12 +265,6 @@ public class ShipStore {
         } catch (NullPointerException e) {
             return 0;
         }
-    }
-
-    public int getTotalNumberOfMovements(Ship s) {
-
-        return s.getPosDate().getSize();
-
     }
 
     public double getMaxSOG(Ship s) {

@@ -268,4 +268,11 @@ public class Ship implements Comparable<Ship> {
     public double getDeltaDistance() {
         return DistanceCalculation.distanceTo(this.getPosDate().getSmallestPosition(), this.getPosDate().getBiggestPosition());
     }
+
+    public int getTotalNumberOfMovements(Ship s) {
+
+        return s.getPosDate().getSize();
+
+    }
+
 }

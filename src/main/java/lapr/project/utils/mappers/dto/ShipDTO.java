@@ -23,7 +23,7 @@ public class ShipDTO {
                 ", totalNumberOfMovements=" + totalNumberOfMovements +
                 ", travelledDistance=" + travelledDistance +
                 ", deltaDistance=" + deltaDistance +
-                '}';
+                "} \n";
     }
 
 }
