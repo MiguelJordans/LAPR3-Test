@@ -31,10 +31,17 @@ public class DistanceCalculation {
     public static double traveledDistanceBaseDateTime(Ship ship, LocalDateTime localinitiald, LocalDateTime localfinald) {
 
 
-        Date initiald = java.sql.Timestamp.valueOf(localfinald);
+        if (ship == null || localinitiald == null || localfinald == null || localinitiald.equals(localfinald)) return 0;
+
+
+        Date initiald = java.sql.Timestamp.valueOf(localinitiald);
         Date finald = java.sql.Timestamp.valueOf(localfinald);
 
-        if (ship == null && initiald == null && initiald == null && initiald.equals(finald)) return 0;
+
+
+
+
+
 
 
         double d = 0;
@@ -48,6 +55,8 @@ public class DistanceCalculation {
 
         Iterable<Position> posIterable = ship.getBinaryTreePosition().inOrder();
         Iterator<Position> posIterator = posIterable.iterator();
+
+
 
 
         while (initiald.before(finald)) {
@@ -67,12 +76,15 @@ public class DistanceCalculation {
             while (posIterator.hasNext()) {
 
                 Position pos = posIterator.next();
-                if (pos.getDate().equals(initiald)) {
+                Date posDate =  java.sql.Timestamp.valueOf(pos.getDate());
 
+                if (!posDate.before(initiald) && !posDate.after(initiald) ) {
                     positionList.add(pos);
                 }
 
             }
+
+            posIterator = posIterable.iterator();
 
             calendar.add(Calendar.SECOND, 1);
             initiald = calendar.getTime();
@@ -103,7 +115,7 @@ public class DistanceCalculation {
         return d;
     }
 
-  /*  public static double traveledDistance(Ship ship) {
+  /* public static double traveledDistance(Ship ship) {
 
         Iterable<Position> allPos = ship.getBinaryTreePosition().inOrder();
         Iterator<Position> iteratorPos = allPos.iterator();
