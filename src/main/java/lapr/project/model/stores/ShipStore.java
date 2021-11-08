@@ -218,36 +218,36 @@ public class ShipStore {
 
         sb
                 .append("Vessel name: " + s.getVesselType() + "\n")
-                .append("Start Base date Time: " + getFirstDate(positionList) + "\n")
-                .append("End base date time : " + getLastDate(positionList) + "\n")
-                .append("Total movement time: " + differenceBetweenDates(getFirstDate(positionList), getLastDate(positionList)) + " minutes" + "\n")
-                .append("Total number of movements : " + getTotalNumberOfMovements(positionList) + "\n")
-                .append("Max SOG : " + getMaxSOG(positionList) + "\n")
-                .append("Mean SOG : " + getMeanSOG(positionList) + "\n")
-                .append("Max COG : " + getMaxCOG(positionList) + "\n")
-                .append("Mean COG : " + getMeanCOG(positionList) + "\n")
-                .append("Departure Latitude : " + getDepartureLatitude(positionList) + "\n")
-                .append("Departure Longitude : " + getDepartureLongitude(positionList) + "\n")
-                .append("Arrival Latitude : " + getArrivalLatitude(positionList) + "\n")
-                .append("Arrival Longitude : " + getArrivalLongitude(positionList) + "\n")
-                .append("Travelled Distance : " + getTravelledDistance(positionList) + "\n")
-                .append("Delta Distance : " + getDeltaDistance(positionList));
+                .append("Start Base date Time: " + getFirstDate(s) + "\n")
+                .append("End base date time : " + getLastDate(s) + "\n")
+                .append("Total movement time: " + differenceBetweenDates(getFirstDate(s), getLastDate(s)) + " minutes" + "\n")
+                .append("Total number of movements : " + getTotalNumberOfMovements(s) + "\n")
+                .append("Max SOG : " + getMaxSOG(s) + "\n")
+                .append("Mean SOG : " + getMeanSOG(s) + "\n")
+                .append("Max COG : " + getMaxCOG(s) + "\n")
+                .append("Mean COG : " + getMeanCOG(s) + "\n")
+                .append("Departure Latitude : " + getDepartureLatitude(s) + "\n")
+                .append("Departure Longitude : " + getDepartureLongitude(s) + "\n")
+                .append("Arrival Latitude : " + getArrivalLatitude(s) + "\n")
+                .append("Arrival Longitude : " + getArrivalLongitude(s) + "\n")
+                .append("Travelled Distance : " + s.getTravelledDistance() + "\n")
+                .append("Delta Distance : " + s.getDeltaDistance());
 
         return sb.toString();
 
     }
 
-    public LocalDateTime getFirstDate(List<Position> positionList) {
+    public LocalDateTime getFirstDate(Ship s) {
         try {
-            return positionList.get(0).getDate();
+            return s.getPosDate().getSmallestPosition().getDate();
         } catch (IndexOutOfBoundsException e) {
             return null;
         }
     }
 
-    public LocalDateTime getLastDate(List<Position> positionList) {
+    public LocalDateTime getLastDate(Ship s) {
         try {
-            return positionList.get(positionList.size() - 1).getDate();
+            return s.getPosDate().getBiggestPosition().getDate();
         } catch (IndexOutOfBoundsException e) {
             return null;
         }
@@ -256,6 +256,7 @@ public class ShipStore {
     public long differenceBetweenDates(LocalDateTime first, LocalDateTime second) {
 
         try {
+
             Date firstDate = java.util.Date.from(first.atZone(ZoneId.systemDefault()).toInstant());
             Date secondDate = java.util.Date.from(second.atZone(ZoneId.systemDefault()).toInstant());
 
@@ -266,30 +267,30 @@ public class ShipStore {
         }
     }
 
-    public int getTotalNumberOfMovements(List<Position> positionList) {
+    public int getTotalNumberOfMovements(Ship s) {
 
-        return positionList.size();
+        return s.getPosDate().getSize();
 
     }
 
-    public double getMaxSOG(List<Position> positionList) {
+    public double getMaxSOG(Ship s) {
 
         double maxSog = 0;
 
-        for (Position ps1 : positionList) {
+        for (Position ps1 : s.getPosDate().getOrderList()) {
             if (ps1.getSog() > maxSog) maxSog = ps1.getSog();
         }
         return maxSog;
     }
 
-    public double getMeanSOG(List<Position> positionList) {
+    public double getMeanSOG(Ship s) {
 
         try {
             double meanSOG = 0;
             int count = 0;
 
-            for (Position s : positionList) {
-                meanSOG += s.getSog();
+            for (Position ps1 : s.getPosDate().getOrderList()) {
+                meanSOG += ps1.getSog();
                 count++;
             }
 
@@ -299,25 +300,25 @@ public class ShipStore {
         }
     }
 
-    public double getMaxCOG(List<Position> positionList) {
+    public double getMaxCOG(Ship s) {
 
         double maxCog = 0;
 
-        for (Position ps1 : positionList) {
+        for (Position ps1 : s.getPosDate().getOrderList()) {
             if (ps1.getCog() > maxCog) maxCog = ps1.getCog();
         }
         return maxCog;
     }
 
-    public double getMeanCOG(List<Position> positionList) {
+    public double getMeanCOG(Ship s) {
 
         try {
 
             double meanCOG = 0;
             int count = 0;
 
-            for (Position s : positionList) {
-                meanCOG += s.getCog();
+            for (Position ps1 : s.getPosDate().getOrderList()) {
+                meanCOG += ps1.getCog();
                 count++;
             }
 
@@ -331,50 +332,33 @@ public class ShipStore {
         return shipBinarySearchTree;
     }
 
-    public double getDepartureLatitude(List<Position> positionList) {
+    public double getDepartureLatitude(Ship s) {
         try {
-            return (positionList.get(0).getLatitude());
+            return (s.getPosDate().getSmallestPosition().getLatitude());
         } catch (IndexOutOfBoundsException e) {
             return 0;
         }
     }
 
-    public double getDepartureLongitude(List<Position> positionList) {
+    public double getDepartureLongitude(Ship s) {
         try {
-            return (positionList.get(positionList.size() - 1).getLatitude());
+            return (s.getPosDate().getSmallestPosition().getLongitude());
         } catch (IndexOutOfBoundsException e) {
             return 0;
         }
     }
 
-    public double getArrivalLatitude(List<Position> positionList) {
+    public double getArrivalLatitude(Ship s) {
         try {
-            return (positionList.get(0).getLongitude());
+            return (s.getPosDate().getBiggestPosition().getLatitude());
         } catch (IndexOutOfBoundsException e) {
             return 0;
         }
     }
 
-    public double getArrivalLongitude(List<Position> positionList) {
+    public double getArrivalLongitude(Ship s) {
         try {
-            return (positionList.get(positionList.size() - 1).getLongitude());
-        } catch (IndexOutOfBoundsException e) {
-            return 0;
-        }
-    }
-
-    public double getTravelledDistance(List<Position> positionList) {
-        double travelledDistance = 0;
-
-        for (int i = 0; i < positionList.size() - 1; i++) {
-            travelledDistance += DistanceCalculation.distanceTo(positionList.get(i), positionList.get(i + 1));
-        }
-        return travelledDistance;
-    }
-
-    public double getDeltaDistance(List<Position> positionList) {
-        try {
-            return DistanceCalculation.distanceTo(positionList.get(0), positionList.get(positionList.size() - 1));
+            return (s.getPosDate().getBiggestPosition().getLongitude());
         } catch (IndexOutOfBoundsException e) {
             return 0;
         }

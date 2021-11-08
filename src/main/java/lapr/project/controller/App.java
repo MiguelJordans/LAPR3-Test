@@ -107,6 +107,7 @@ public class App {
         LocalDateTime date2 = LocalDateTime.parse(sdate2, formatter2);
 
         Position posgeral = new Position(0, 0, 0, 0, 1, date);
+        Position posgeralTest = new Position(5, 5, 5, 5, 5, date);
         Position posgeral2 = new Position(10, 20, 30, 20, 10, date2);
 
         //Ships
@@ -125,7 +126,7 @@ public class App {
         Ship shipTest2 = new Ship(222222222, "name", "IMO1121111", 1, 1, "B", "A", 1, 1, 1, 1);
         company.getShipStore().addShip(shipTest2);
 
-        shipTest2.getPosDate().addPosition(posgeral);
+        shipTest2.getPosDate().addPosition(posgeralTest);
         shipTest2.getPosDate().addPosition(posgeral2);
 
 

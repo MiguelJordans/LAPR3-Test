@@ -1,6 +1,7 @@
 package lapr.project.model;
 
 import lapr.project.model.stores.PositionTree;
+import lapr.project.shared.DistanceCalculation;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
@@ -250,6 +251,23 @@ public class Ship implements Comparable<Ship> {
     @Override
     public int hashCode() {
         return Objects.hash(getMmsi(), getName(), getImo(), getNumGen(), getGenPowerOutput(), getCallSign(), getVesselType(), getLength(), getWidth(), getCapacity(), getDraft());
+    }
+
+    public double getTravelledDistance() {
+        double travelledDistance = 0;
+
+        for (int i = 0; i < this.getPosDate().getInOrderList().size() - 1; i++) {
+            travelledDistance += DistanceCalculation.distanceTo(this.getPosDate().getInOrderList().get(i), this.getPosDate().getInOrderList().get(i + 1));
+        }
+        return travelledDistance;
+    }
+
+    public double getDeltaDistance() {
+        try {
+            return DistanceCalculation.distanceTo(this.getPosDate().getSmallestPosition(), this.getPosDate().getBiggestPosition());
+        } catch (IndexOutOfBoundsException e) {
+            return 0;
+        }
     }
 
 }
