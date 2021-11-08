@@ -1,4 +1,4 @@
-package lapr.project.model;
+/*package lapr.project.model;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -65,4 +65,4 @@ public class CargoManifest {
         result = 31 * result + Arrays.hashCode(containerPosition);
         return result;
     }
-}
+}*/

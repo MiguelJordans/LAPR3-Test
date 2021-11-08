@@ -215,9 +215,13 @@ public class Ship implements Comparable<Ship> {
     @Override
     public String toString() {
         return "Ship{" +
-                "mmsi=" + mmsi +
+                "posDate=" + posDate +
+                ", Date=" + Date +
+                ", trancieverClass=" + trancieverClass +
+                ", cargo=" + cargo +
+                ", mmsi=" + mmsi +
                 ", name='" + name + '\'' +
-                ", imo=" + imo +
+                ", imo='" + imo + '\'' +
                 ", numGen=" + numGen +
                 ", genPowerOutput=" + genPowerOutput +
                 ", callSign='" + callSign + '\'' +
@@ -226,7 +230,6 @@ public class Ship implements Comparable<Ship> {
                 ", width=" + width +
                 ", capacity=" + capacity +
                 ", draft=" + draft +
-                ", posDate=" + posDate +
                 '}';
     }
 
@@ -263,11 +266,7 @@ public class Ship implements Comparable<Ship> {
     }
 
     public double getDeltaDistance() {
-        try {
-            return DistanceCalculation.distanceTo(this.getPosDate().getSmallestPosition(), this.getPosDate().getBiggestPosition());
-        } catch (IndexOutOfBoundsException e) {
-            return 0;
-        }
+        return DistanceCalculation.distanceTo(this.getPosDate().getSmallestPosition(), this.getPosDate().getBiggestPosition());
     }
 
 }

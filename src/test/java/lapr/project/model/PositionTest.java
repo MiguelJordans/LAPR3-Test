@@ -3,6 +3,8 @@ package lapr.project.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PositionTest {
@@ -119,5 +121,20 @@ class PositionTest {
         //Act
         //Assert
         assertEquals(expected, posgeral.toString());
+    }
+
+    @Test
+    void setDate() {
+
+        //Arrange
+        LocalDateTime expected = LocalDateTime.now();
+
+        //Act
+        posgeral.setDate(expected);
+        LocalDateTime actual = posgeral.getDate();
+
+        //Assert
+        assertEquals(expected, actual);
+
     }
 }
