@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 class ShipStoreTest {
-
-
     Ship shipgeral = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
+    Ship shipgeral2 = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
 
     ShipStore shipstore = new ShipStore();
 
@@ -37,8 +37,6 @@ class ShipStoreTest {
         //Act
         //Assert
         assertEquals(expected, shipstore.getlShip());
-
-
     }
 
     @Test
@@ -382,6 +380,17 @@ class ShipStoreTest {
         assertEquals(expected,actual);
 
 
+    }
+
+    @Test
+    void sortedList() {
+        //Arrange
+        List<Ship> shipList = shipstore.getlShip();
+        //Act
+        List<Ship> expected =
+
+        //Assert
+        assertEquals(expected, shipList);
     }
 
 }
