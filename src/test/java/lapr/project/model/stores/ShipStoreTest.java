@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ShipStoreTest {
-
-
     Ship shipgeral = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
+    Ship shipgeral2 = new Ship(111111111, "name", "IMO1111111", 1, 1, "A", "A", 1, 1, 1, 1);
 
     ShipStore shipstore = new ShipStore();
 
@@ -38,8 +37,6 @@ class ShipStoreTest {
         //Act
         //Assert
         assertEquals(expected, shipstore.getlShip());
-
-
     }
 
     @Test
@@ -385,9 +382,22 @@ class ShipStoreTest {
 
     }
 
+    /*
+    @Test
+    void sortedList() {
+        //Arrange
+        List<Ship> shipList = shipstore.getlShip();
+        //Act
+        List<Ship> expected =
+
+        //Assert
+        assertEquals(expected, shipList);
+    }
+     */
+
+
     @Test
     void getTopN(){
-
         //Arrange
         List<Ship> expectedtestShip = new ArrayList<>();
         expectedtestShip.add(shipgeral);
@@ -407,4 +417,3 @@ class ShipStoreTest {
     }
 
 }
-

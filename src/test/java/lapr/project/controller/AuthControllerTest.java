@@ -17,7 +17,7 @@ class AuthControllerTest {
     public void doLogin() {
 
         //Arrange
-        authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem desing");
+        authController.getApp().getAuthFacade().addUserRole("Trolley", "Construir software sem design");
         authController.getApp().getAuthFacade().addUserWithRole("Mariana", "1200902@isep.ipp.pt", "69Sus", "Trolley");
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
