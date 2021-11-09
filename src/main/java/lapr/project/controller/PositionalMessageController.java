@@ -1,8 +1,14 @@
 package lapr.project.controller;
 
 import lapr.project.model.Company;
+import lapr.project.model.Position;
 import lapr.project.model.Ship;
+import lapr.project.model.stores.PositionTree;
 import lapr.project.model.stores.ShipStore;
+import lapr.project.shared.BinarySearchTree;
+
+import java.time.LocalDateTime;
+import java.util.Iterator;
 
 
 public class PositionalMessageController {
@@ -16,16 +22,16 @@ public class PositionalMessageController {
     }
 
 
-    public boolean getPositionalMessages(int mmsi) {
+    public boolean getPositionalMessages(int mmsi, LocalDateTime di , LocalDateTime df) {
 
         Ship ship = shipStore.getShipByMMSI(mmsi);
 
 
         if (ship == null) return false;
 
-        String posMessage = ship.writeAllPos();
+        String posMessage = ship.writeAllPos(di,df);
 
-        if (posMessage.equals("Positional Messages:")) {
+        if (posMessage.equals("Positional Message:")) {
             System.out.println(mmsi + " positional messages are empty!");
         } else {
             System.out.println(posMessage);

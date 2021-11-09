@@ -383,6 +383,7 @@ class ShipStoreTest {
     }
 
     @Test
+<<<<<<< HEAD
     void sortedList() {
         //Arrange
         List<Ship> shipList = shipstore.getlShip();
@@ -394,29 +395,25 @@ class ShipStoreTest {
     }
 
 }
+=======
+    void getTopN(){
+>>>>>>> 16c429cba951311202021bf72e5c464f44021cab
 
-   /* @Test
-    public void writeAllShips(){
         //Arrange
-        shipstore.getlShip().add(shipgeral);
-        ShipStore shipstore2 = new ShipStore();
-
+        List<Ship> expectedtestShip = new ArrayList<>();
+        expectedtestShip.add(shipgeral);
+        shipstore.getShipBinarySearchTree().insert(shipgeral);
+        ShipStore shipStoreTest = new ShipStore();
         //Act
-        //Assert
-        assertEquals(false,shipstore2.writeAllShips());
-        assertEquals(true,shipstore.writeAllShips());
+        List<Ship> actualtestShip = shipstore.getTopN(1,"A",date,date2);
 
+
+
+        //Assert
+        assertEquals(null,shipStoreTest.getTopN(1,"A",date,date2));
+        assertEquals(expectedtestShip.size(),actualtestShip.size());
+        assertEquals(expectedtestShip.indexOf(shipgeral),actualtestShip.indexOf(shipgeral));
     }
 
-    @Test
-    public void getShipByMMSITest(){
-        //Arrange
-        shipstore.getlShip().add(shipgeral);
-        ShipStore shipstore2 = new ShipStore();
-        //Act
-        //Assert
-        assertEquals(shipgeral,shipstore.getShipByMMSI(111111111));
-        assertEquals(null,shipstore2.getShipByMMSI(111111111));
-    }
+}
 
-}*/

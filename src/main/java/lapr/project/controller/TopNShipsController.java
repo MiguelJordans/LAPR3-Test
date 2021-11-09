@@ -9,18 +9,21 @@ import java.util.List;
 
 public class TopNShipsController {
 
-    private Company company;
-    private ShipStore shipStore;
+    Company company;
+    ShipStore shipStore;
 
     public TopNShipsController(){
+
+
         this.company = App.getInstance().getCompany();
-        shipStore = company.getShipStore();
+        this.shipStore = company.getShipStore();
     }
 
 
-    public List<Ship> getTopNShips(String vesselType, LocalDateTime li, LocalDateTime lf){
+    public List<Ship> getTopNShips(int n,String vesselType, LocalDateTime li, LocalDateTime lf){
 
-        List<Ship> lShip = getTopNShips(vesselType,li,lf);
+
+        List<Ship> lShip = shipStore.getTopN(n,vesselType,li,lf);
 
         if(lShip == null) return null;
 
