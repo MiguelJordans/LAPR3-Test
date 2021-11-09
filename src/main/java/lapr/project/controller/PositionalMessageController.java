@@ -29,7 +29,7 @@ public class PositionalMessageController {
 
         if (ship == null) return false;
 
-        String posMessage = ship.writeAllPos(ship,di,df);
+        String posMessage = ship.writeAllPos(di,df);
 
         if (posMessage.equals("Positional Message:")) {
             System.out.println(mmsi + " positional messages are empty!");

@@ -204,16 +204,11 @@ public class Ship implements Comparable<Ship> {
     }
 
 
-    public String writeAllPos(Ship s,LocalDateTime di, LocalDateTime df) {
+    public String writeAllPos(LocalDateTime di, LocalDateTime df) {
 
-       /* PositionTree binaryTest = s.getPosDate();
-        Iterable<Position> ps = binaryTest.getInOrderList();
-        Iterator<Position> psi = ps.iterator();
+        String positionalMessage = "Positional Message:";
 
-        while(psi.hasNext()){
-            System.out.println(psi.next());
-            psi.next();
-        }*/
+        if(di == null || df == null) return positionalMessage;
 
         Date initiald = java.sql.Timestamp.valueOf(di);
         Date finald = java.sql.Timestamp.valueOf(df);
@@ -227,7 +222,7 @@ public class Ship implements Comparable<Ship> {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(initiald);
 
-        PositionTree binaryTest = s.getPosDate();
+        PositionTree binaryTest = this.getPosDate();
         Iterable<Position> posIterable = binaryTest.getInOrderList();
         Iterator<Position> posIterator = posIterable.iterator();
 
@@ -267,8 +262,7 @@ public class Ship implements Comparable<Ship> {
             initiald = calendar.getTime();
         }
 
-        String positionalMessage;
-        positionalMessage = "Positional Message:";
+
 
         if(positionList.isEmpty()) return positionalMessage;
 

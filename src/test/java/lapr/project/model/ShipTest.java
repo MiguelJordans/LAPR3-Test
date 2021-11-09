@@ -481,12 +481,13 @@ public class ShipTest {
     }
 
     @Test
-    void writeAllPosNull() {
+    void writeAllPosTest() {
 
         //Arrange + Act
-        String expected = shipgeral.writeAllPos(shipgeral,null,null);
+        String expected = "Positional Message:";
+
         //Act + Assert
-        assertEquals(expected, null);
+        assertEquals(expected, shipgeral.writeAllPos(null,null));
     }
 
     @Test
