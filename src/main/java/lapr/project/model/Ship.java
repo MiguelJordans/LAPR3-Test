@@ -5,9 +5,7 @@ import lapr.project.shared.DistanceCalculation;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Ship implements Comparable<Ship> {
 
@@ -206,9 +204,81 @@ public class Ship implements Comparable<Ship> {
     }
 
 
-    public String writeAllPos() {
+    public String writeAllPos(Ship s,LocalDateTime di, LocalDateTime df) {
 
-        return null;
+       /* PositionTree binaryTest = s.getPosDate();
+        Iterable<Position> ps = binaryTest.getInOrderList();
+        Iterator<Position> psi = ps.iterator();
+
+        while(psi.hasNext()){
+            System.out.println(psi.next());
+            psi.next();
+        }*/
+
+        Date initiald = java.sql.Timestamp.valueOf(di);
+        Date finald = java.sql.Timestamp.valueOf(df);
+
+
+
+
+        double d = 0;
+        List<Position> positionList = new ArrayList<>();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(initiald);
+
+        PositionTree binaryTest = s.getPosDate();
+        Iterable<Position> posIterable = binaryTest.getInOrderList();
+        Iterator<Position> posIterator = posIterable.iterator();
+
+
+
+
+        while (initiald.before(finald)) {
+
+
+            if (calendar.getTime().getMinutes() == 60) {
+                calendar.add(Calendar.HOUR_OF_DAY, 1);
+                calendar.getTime().setMinutes(0);
+                calendar.getTime().setSeconds(0);
+            }
+            if (calendar.getTime().getSeconds() == 60) {
+                calendar.add(Calendar.MINUTE, 1);
+                calendar.getTime().setSeconds(0);
+            }
+
+
+            while (posIterator.hasNext()) {
+
+
+
+                Position pos = posIterator.next();
+                Date posDate = java.sql.Timestamp.valueOf(pos.getDate());
+
+                if (!posDate.before(initiald) && !posDate.after(initiald)) {
+                    positionList.add(pos);
+                }
+
+            }
+
+            posIterator = posIterable.iterator();
+
+            calendar.add(Calendar.SECOND, 1);
+            initiald = calendar.getTime();
+        }
+
+        String positionalMessage;
+        positionalMessage = "Positional Message:";
+
+        if(positionList.isEmpty()) return positionalMessage;
+
+        for(Position pos : positionList){
+           positionalMessage =  positionalMessage +"\n" + pos.toString() ;
+        }
+
+
+
+        return positionalMessage;
     }
 
 

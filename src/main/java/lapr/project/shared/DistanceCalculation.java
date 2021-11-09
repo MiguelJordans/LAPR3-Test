@@ -28,7 +28,7 @@ public class DistanceCalculation {
         return d;
     }
 
-    public static double traveledDistanceBaseDateTime(Ship ship, LocalDateTime localinitiald, LocalDateTime localfinald) {
+    public double traveledDistanceBaseDateTime(Ship ship, LocalDateTime localinitiald, LocalDateTime localfinald) {
 
 
         if (ship == null || localinitiald == null || localfinald == null || localinitiald.equals(localfinald)) return 0;

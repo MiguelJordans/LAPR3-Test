@@ -484,7 +484,7 @@ public class ShipTest {
     void writeAllPosNull() {
 
         //Arrange + Act
-        String expected = shipgeral.writeAllPos();
+        String expected = shipgeral.writeAllPos(shipgeral,null,null);
         //Act + Assert
         assertEquals(expected, null);
     }

@@ -28,9 +28,12 @@ public class TopNShips extends DistanceCalculation {
     Position posgeral4 = new Position(30, 30, 30, 1, 0,localDateTime2);
 */
 
+    Company company;
+    ShipStore shipStore;
+    public TopNShips(){
 
-    private Company company = App.getInstance().getCompany();
-    private ShipStore shipStore = company.getShipStore();
+     this.company = App.getInstance().getCompany();
+     this.shipStore = company.getShipStore();}
 
 
 
@@ -75,6 +78,7 @@ public class TopNShips extends DistanceCalculation {
                     if(max < traveledDistanceBaseDateTime(s,dt,dt2));{
                         max = traveledDistanceBaseDateTime(s,dt,dt2);
                         maxShip = s;
+
                     }
                 }
 

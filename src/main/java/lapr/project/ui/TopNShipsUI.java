@@ -30,21 +30,21 @@ public class TopNShipsUI implements Runnable {
         System.out.println("Vessel Type?");
         vesselType = read.next();
 
-        System.out.println("Inital date? yyyy-mm-dd HH:mm:ss");
+        System.out.println("Inital date? yyyy-MM-dd HH:mm");
         date = read.next();
 
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm:ss");
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 
         LocalDateTime datei = LocalDateTime.parse(date, dateFormat);
 
 
-        System.out.println("Final date? yyyy-mm-dd HH:mm:ss");
+        System.out.println("Final date? yyyy-MM-dd HH:mm");
         date = read.next();
 
         LocalDateTime datef = LocalDateTime.parse(date,dateFormat);
 
-        List<Ship> lShip = topNShipsController.getTopNShips(vesselType,datei,datef);
+        List<Ship> lShip = topNShipsController.getTopNShips(n,vesselType,datei,datef);
 
         if(lShip == null) System.out.println("Not sucessful");
         else{
