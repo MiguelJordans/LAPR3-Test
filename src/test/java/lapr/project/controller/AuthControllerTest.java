@@ -40,8 +40,6 @@ class AuthControllerTest {
         //Assert
         assertEquals(expected, actual);*/
 
-    }
-
     @Test
     public void getUserRoles() {
 
