@@ -3,7 +3,6 @@ package lapr.project.model.stores;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
-import lapr.project.shared.DistanceCalculation;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -14,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ShipStore {
 
     BinarySearchTree<Ship> shipBinarySearchTree;
-    // BinarySearchTree<List<Ship>> pairsOfShipsSearchTree;
+    //BinarySearchTree<Pair<Ship, Ship>> pairsOfShipsSearchTree;
 
     public ShipStore() {
         this.shipBinarySearchTree = new BinarySearchTree<>();
@@ -327,7 +326,6 @@ public class ShipStore {
 
 //Ainda falta acabar este método
 
-    /*
 
     public void getPairOfShipsInsideBST() {
 
@@ -341,28 +339,13 @@ public class ShipStore {
 
                 Ship s2 = lShip.get(j);
 
-                if (!s1.equals(s2)) {
+                if (!s1.equals(s2) && (s1.getDeltaDistance() == s2.getDeltaDistance() && (s1.getDeltaDistance() < 5000 && s2.getDeltaDistance() < 5000) && (s1.getDeltaDistance() > 10000 && s2.getDeltaDistance() > 10000))) {
 
-                    Iterable<Position> date1Iterable = s1.getBinaryTreePosition().inOrder();
-                    List<Position> positionS1List = new ArrayList<>();
-                    date1Iterable.iterator().forEachRemaining(positionS1List::add);
+                   // Pair<Ship, Ship> pairOfShips = new Pair(s1, s2);
+                  //  pairsOfShipsSearchTree.insert(pairOfShips);
 
-                    Iterable<Position> date2Iterable = s2.getBinaryTreePosition().inOrder();
-                    List<Position> positionS2List = new ArrayList<>();
-                    date2Iterable.iterator().forEachRemaining(positionS2List::add);
-
-                    if (getDeltaDistance(positionS1List) == getDeltaDistance(positionS2List) && (getDeltaDistance(positionS1List) < 5000 && getDeltaDistance(positionS2List) < 5000) && (getTravelledDistance(positionS1List) > 10000 && getTravelledDistance(positionS2List) > 10000)) {
-
-                        List<Ship> pairOfShips = new ArrayList<>();
-
-                        pairOfShips.add(s1);
-                        pairOfShips.add(s2);
-
-                        pairsOfShipsSearchTree.insert(pairOfShips);
-
-                    }
                 }
             }
         }
-    }*/
+    }
 }
