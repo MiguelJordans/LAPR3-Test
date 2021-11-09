@@ -7,7 +7,6 @@ import lapr.project.utils.mappers.ShipMapper;
 import lapr.project.utils.mappers.dto.ShipDTO;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -60,26 +59,10 @@ public class ListShipsController {
         return shipList;
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        System.out.println(getShipListDTO());
-
-        for (Ship ship : this.shipList) {
-      //      sb.append("MMSI: ").append(ship.getMmsi()).append("; Total number of movements: ").append(shipStore.getTotalNumberOfMovements(ship)).append("; Travelled Distance: ").append(ship.getTravelledDistance()).append("; Delta Distance: ").append(ship.getDeltaDistance()).append("\n");
-        }
-        return sb.toString();
-    }
-
     public List<ShipDTO> getShipListDTO() {
-
         this.shipMapper = new ShipMapper();
-
         List<Ship> sShips = sortedList();
 
         return shipMapper.toDTO(sShips);
-
     }
-
-
 }

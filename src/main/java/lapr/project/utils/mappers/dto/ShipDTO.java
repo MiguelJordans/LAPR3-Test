@@ -1,5 +1,7 @@
 package lapr.project.utils.mappers.dto;
 
+import lapr.project.model.Ship;
+
 public class ShipDTO {
 
     private int mmsi;
@@ -18,12 +20,6 @@ public class ShipDTO {
 
     @Override
     public String toString() {
-        return "ShipDTO{" +
-                "mmsi=" + mmsi +
-                ", totalNumberOfMovements=" + totalNumberOfMovements +
-                ", travelledDistance=" + travelledDistance +
-                ", deltaDistance=" + deltaDistance +
-                "} \n";
+        return "MMSI: " + this.mmsi + "; Total number of movements: " + this.totalNumberOfMovements + "; Travelled Distance: " + this.travelledDistance + "; Delta Distance: " + this.deltaDistance + "\n";
     }
-
 }
