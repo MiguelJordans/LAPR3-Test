@@ -485,8 +485,8 @@ public class ShipTest {
 
         //Arrange
         shipgeral.getPosDate().addPosition(posgeral);
-        LocalDateTime li = LocalDateTime.of(2020,10,10,10,10,10);
-        LocalDateTime lf = LocalDateTime.of(2021,10,10,10,10,10);
+        LocalDateTime li = LocalDateTime.of(2020,12,01,01,01,01);
+        LocalDateTime lf = LocalDateTime.of(2020,12,31,23,59,50);
 
         String expected = "Positional Message:";
         String expected2 = "Positional Message:\n" +

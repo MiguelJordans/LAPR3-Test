@@ -26,7 +26,6 @@ public class TopNShipsController {
         List<Ship> lShip = shipStore.getTopN(n,vesselType,li,lf);
 
         if(lShip == null) return null;
-
         else return lShip;
 
     }

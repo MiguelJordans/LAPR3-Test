@@ -355,6 +355,11 @@ public class ShipStore {
 
             }
 
+            if(shipsByVessel.size() != n) {
+                System.out.println("There is not enough ships to do this operation!");
+                return null;
+            }
+
 
             double max = 0;
             Ship maxShip = null;
