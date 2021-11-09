@@ -325,7 +325,6 @@ public class ShipStore {
         }
     }
 
-<<<<<<< HEAD
     public List<Ship> sortedList() {
         List<Ship> shipList = transformBSTintoList();
         Comparator<Ship> comparator1 = (o1, o2) -> {
@@ -358,7 +357,6 @@ public class ShipStore {
         return shipList;
     }
 
-=======
     public List<Ship> getTopN(int n, String vesselType, LocalDateTime dt, LocalDateTime dt2){
 
 
@@ -418,11 +416,6 @@ public class ShipStore {
         }
 
     }
-
-
->>>>>>> 16c429cba951311202021bf72e5c464f44021cab
-//Ainda falta acabar este método
-
 
     public void getPairOfShipsInsideBST() {
 

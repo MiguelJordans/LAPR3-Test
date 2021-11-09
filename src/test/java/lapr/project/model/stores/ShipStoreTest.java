@@ -382,8 +382,8 @@ class ShipStoreTest {
 
     }
 
+    /*
     @Test
-<<<<<<< HEAD
     void sortedList() {
         //Arrange
         List<Ship> shipList = shipstore.getlShip();
@@ -393,12 +393,11 @@ class ShipStoreTest {
         //Assert
         assertEquals(expected, shipList);
     }
+     */
 
-}
-=======
+
+    @Test
     void getTopN(){
->>>>>>> 16c429cba951311202021bf72e5c464f44021cab
-
         //Arrange
         List<Ship> expectedtestShip = new ArrayList<>();
         expectedtestShip.add(shipgeral);
@@ -416,4 +415,3 @@ class ShipStoreTest {
     }
 
 }
-
