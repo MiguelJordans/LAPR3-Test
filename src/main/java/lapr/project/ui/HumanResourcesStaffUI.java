@@ -5,7 +5,7 @@ import lapr.project.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HumanResourcesStaff implements Runnable {
+public class HumanResourcesStaffUI implements Runnable {
 
     public void run() {
 

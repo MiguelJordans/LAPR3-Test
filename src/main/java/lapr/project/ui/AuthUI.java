@@ -76,6 +76,7 @@ public class AuthUI {
 
         rolesUI.add(new MenuItem(Constants.ROLE_CLIENT,new ClientUI()));
         rolesUI.add(new MenuItem(Constants.ROLE_TRAFFIC_MANAGER,new TrafficManagerUI()));
+        rolesUI.add(new MenuItem(Constants.ROLE_HUMAN_RESOURCES_STAFF,new HumanResourcesStaffUI()));
 
         return rolesUI;
     }

@@ -44,44 +44,10 @@ public class ShipStore {
         if (lShip.isEmpty()) return false;
 
         for (Ship s : lShip) {
-            System.out.println(s);
+
         }
 
         return true;
-    }
-
-    public Ship getShipByMMSI(long mmsi) {
-
-        List<Ship> lShip = transformBSTintoList();
-
-        for (Ship s : lShip) {
-
-            if (mmsi == s.getMmsi()) return s;
-        }
-
-        return null;
-    }
-
-    public List<Integer> getShipListMmsi() {
-
-        List<Ship> lShip = transformBSTintoList();
-
-        List<Integer> shipListMmsi = new ArrayList<>();
-        for (Ship ship : lShip) {
-            shipListMmsi.add(ship.getMmsi());
-        }
-        return shipListMmsi;
-    }
-
-    public List<String> getShipListPos() {
-
-        List<Ship> lShip = transformBSTintoList();
-
-        List<String> shipListPos = new ArrayList<>();
-        for (Ship ship : lShip) {
-            shipListPos.add(ship.writeAllPos());
-        }
-        return shipListPos;
     }
 
     public void addShip(Ship ship) {
@@ -95,11 +61,8 @@ public class ShipStore {
         Iterator<Ship> iterShip = ls.iterator();
 
         while (iterShip.hasNext()) {
+
             Ship s = iterShip.next();
-
-
-            List<Ship> lista = transformBSTintoList();
-
 
             if (s.getMmsi() == mmsi) return s;
         }
@@ -291,7 +254,7 @@ public class ShipStore {
             if (count == 0) return 0;
 
             return (meanSOG / count);
-        } catch (ArithmeticException e) {
+        } catch (ArithmeticException | NullPointerException e) {
             return 0;
         }
     }
@@ -321,7 +284,7 @@ public class ShipStore {
             if (count == 0) return 0;
 
             return (meanCOG / count);
-        } catch (ArithmeticException e) {
+        } catch (ArithmeticException | NullPointerException e) {
             return 0;
         }
     }

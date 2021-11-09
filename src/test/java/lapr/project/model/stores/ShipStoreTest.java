@@ -306,14 +306,85 @@ class ShipStoreTest {
         assertNotNull(shipStore1);
     }
 
+    @Test
+    void writeAllShips() {
+
+        //Arrange
+        shipstore.addShip(shipgeral);
+        boolean expected = true;
+        //Act
+        boolean actual = shipstore.writeAllShips();
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void writeAllShipsEmpty() {
+
+        //Arrange
+        boolean expected = false;
+        //Act
+        boolean actual = shipstore.writeAllShips();
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void getShipByMMSI() {
+
+        //Arrange
+        shipstore.addShip(shipgeral);
+        Ship expected = shipgeral;
+        //Act
+        Ship actual = shipstore.getShipByMMSI(111111111);
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getShipByMMSINull() {
+
+        //Arrange
+        Ship expected = null;
+        //Act
+        Ship actual = shipstore.getShipByMMSI(111111111);
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getMeanSOGDividedByZero() {
+
+        //Arrange
+        double expected = 0;
+        Ship ship = new Ship(111111111);
+        ship.addNewPosMessage(null);
+        //Act
+        double actual = shipstore.getMeanSOG(ship);
+        //Assert
+        assertEquals(expected,actual);
+
+
+    }
+
+    @Test
+    void getMeanCOGDividedByZero() {
+
+        //Arrange
+        double expected = 0;
+        Ship ship = new Ship(111111111);
+        ship.addNewPosMessage(null);
+        //Act
+        double actual = shipstore.getMeanCOG(ship);
+        //Assert
+        assertEquals(expected,actual);
+
+
+    }
 
 }
-
-
-
-
-
-
 
    /* @Test
     public void writeAllShips(){

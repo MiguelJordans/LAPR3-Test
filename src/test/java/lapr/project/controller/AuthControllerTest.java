@@ -30,6 +30,19 @@ class AuthControllerTest {
     }
 
     @Test
+    public void doLoginFalse() {
+
+        //Arrange
+        authController.doLogin(null, null);
+        boolean expected = false;
+        //Act
+        boolean actual = authController.getApp().getCurrentUserSession().isLoggedIn();
+        //Assert
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void getUserRoles() {
 
         //Arrange + Act
@@ -40,6 +53,18 @@ class AuthControllerTest {
         authController.doLogin("1200902@isep.ipp.pt", "69Sus");
         //Assert
         assertNotNull(list);
+
+    }
+
+
+    @Test
+    public void getUserRolesNull() {
+
+        //Arrange + Act
+        authController.doLogout();
+        List<UserRoleDTO> list = authController.getUserRoles();
+        //Assert
+        assertEquals(list, null);
 
     }
 

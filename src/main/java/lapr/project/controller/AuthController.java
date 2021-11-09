@@ -20,6 +20,7 @@ public class AuthController {
         try {
 
             return this.app.doLogin(email, pwd);
+
         } catch(IllegalArgumentException ex)
         {
             return false;
