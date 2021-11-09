@@ -499,4 +499,13 @@ public class ShipTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void creationTest() {
+
+        //Arrange + Act + Assert
+
+        assertNotNull(new Ship(111111111, "Ship", "IMO1111111", "A", "A", 23, 23, 23, 23, 'a'));
+
+    }
+
 }

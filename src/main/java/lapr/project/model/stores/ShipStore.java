@@ -240,7 +240,7 @@ public class ShipStore {
     public LocalDateTime getFirstDate(Ship s) {
         try {
             return s.getPosDate().getSmallestPosition().getDate();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return null;
         }
     }
@@ -248,7 +248,7 @@ public class ShipStore {
     public LocalDateTime getLastDate(Ship s) {
         try {
             return s.getPosDate().getBiggestPosition().getDate();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return null;
         }
     }
@@ -288,6 +288,8 @@ public class ShipStore {
                 count++;
             }
 
+            if (count == 0) return 0;
+
             return (meanSOG / count);
         } catch (ArithmeticException e) {
             return 0;
@@ -316,6 +318,8 @@ public class ShipStore {
                 count++;
             }
 
+            if (count == 0) return 0;
+
             return (meanCOG / count);
         } catch (ArithmeticException e) {
             return 0;
@@ -329,7 +333,7 @@ public class ShipStore {
     public double getDepartureLatitude(Ship s) {
         try {
             return (s.getPosDate().getSmallestPosition().getLatitude());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return 0;
         }
     }
@@ -337,7 +341,7 @@ public class ShipStore {
     public double getDepartureLongitude(Ship s) {
         try {
             return (s.getPosDate().getSmallestPosition().getLongitude());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return 0;
         }
     }
@@ -345,7 +349,7 @@ public class ShipStore {
     public double getArrivalLatitude(Ship s) {
         try {
             return (s.getPosDate().getBiggestPosition().getLatitude());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return 0;
         }
     }
@@ -353,7 +357,7 @@ public class ShipStore {
     public double getArrivalLongitude(Ship s) {
         try {
             return (s.getPosDate().getBiggestPosition().getLongitude());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return 0;
         }
     }

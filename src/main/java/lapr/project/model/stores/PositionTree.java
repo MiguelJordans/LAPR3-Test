@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositionTree {
+
     BinarySearchTree<Position> positionBinarySearchTree;
 
     public PositionTree() {
@@ -35,8 +36,8 @@ public class PositionTree {
         return positionBinarySearchTree.inOrder();
     }
 
-    public void getPosition(LocalDateTime date) {
-        positionBinarySearchTree.find(new Position(0, 0, 0, 0, 0, date));
+    public Position getPosition(LocalDateTime date) {
+       return positionBinarySearchTree.find(new Position(0, 0, 0, 0, 0, date));
     }
 
     public List<Position> getInOrderList() {
