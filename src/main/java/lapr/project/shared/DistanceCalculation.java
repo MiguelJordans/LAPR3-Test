@@ -8,6 +8,10 @@ import java.util.*;
 
 public class DistanceCalculation {
 
+    public DistanceCalculation(){
+
+    }
+
     public static double distanceTo(Position pos, Position pos2) {
 
         if (pos == null && pos2 == null) return 0;

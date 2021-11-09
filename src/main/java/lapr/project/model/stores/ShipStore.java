@@ -3,6 +3,7 @@ package lapr.project.model.stores;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.shared.BinarySearchTree;
+import lapr.project.shared.DistanceCalculation;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -323,6 +324,67 @@ public class ShipStore {
             return 0;
         }
     }
+
+    public List<Ship> getTopN(int n, String vesselType, LocalDateTime dt, LocalDateTime dt2){
+
+
+        DistanceCalculation distance = new DistanceCalculation();
+        int count = 0;
+        List <Ship> shipsByVessel = new ArrayList();
+
+
+        if(this.getShipBinarySearchTree().isEmpty()) {
+            System.out.println("Store is empty!");
+            return null;
+        }
+        else{
+
+
+            Iterable<Ship> iterableShip = this.getShipBinarySearchTree().inOrder();
+            Iterator<Ship> iteratorShip = iterableShip.iterator();
+
+
+            while(iteratorShip.hasNext()){
+
+                Ship s = iteratorShip.next();
+
+                if(s.getVesselType().equals(vesselType) && count < n){
+
+                    shipsByVessel.add(s);
+                    count++;}
+
+            }
+
+
+            double max = 0;
+            Ship maxShip = null;
+            List topNShips = new ArrayList();
+
+            while(shipsByVessel.size() != 0){
+
+
+                for(Ship s : shipsByVessel){
+
+                    if(max < distance.traveledDistanceBaseDateTime(s,dt,dt2));{
+                        max = distance.traveledDistanceBaseDateTime(s,dt,dt2);
+                        maxShip = s;
+
+                    }
+                }
+
+                shipsByVessel.remove(maxShip);
+                topNShips.add(maxShip);
+                max = 0;
+
+            }
+
+
+
+            return topNShips;
+        }
+
+    }
+
 
 //Ainda falta acabar este método
 
