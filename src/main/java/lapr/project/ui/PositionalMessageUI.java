@@ -26,7 +26,6 @@ public class PositionalMessageUI implements Runnable {
         mmsi = read.nextInt();
 
 
-        System.out.println("Initial date:");
         System.out.println("Inital date? yyyy-mm-dd HH:mm:ss");
         date = Utils.readLineFromConsole("");
 

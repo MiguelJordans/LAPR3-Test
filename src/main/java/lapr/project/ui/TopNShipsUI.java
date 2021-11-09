@@ -2,6 +2,7 @@ package lapr.project.ui;
 
 import lapr.project.controller.TopNShipsController;
 import lapr.project.model.Ship;
+import lapr.project.utils.Utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -30,19 +31,20 @@ public class TopNShipsUI implements Runnable {
         System.out.println("Vessel Type?");
         vesselType = read.next();
 
-        System.out.println("Inital date? yyyy-MM-dd HH:mm");
-        date = read.next();
 
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        System.out.println("Inital date? yyyy-mm-dd HH:mm:ss");
+        date = Utils.readLineFromConsole("");
 
 
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime datei = LocalDateTime.parse(date, dateFormat);
 
 
-        System.out.println("Final date? yyyy-MM-dd HH:mm");
-        date = read.next();
+        System.out.println("Final date? yyyy-mm-dd HH:mm:ss");
+        date = Utils.readLineFromConsole("");
 
-        LocalDateTime datef = LocalDateTime.parse(date,dateFormat);
+        LocalDateTime datef = LocalDateTime.parse(date, dateFormat);
+
 
         List<Ship> lShip = topNShipsController.getTopNShips(n,vesselType,datei,datef);
 

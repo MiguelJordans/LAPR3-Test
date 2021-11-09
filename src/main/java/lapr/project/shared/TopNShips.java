@@ -61,17 +61,20 @@ public class TopNShips extends DistanceCalculation {
 
                 Ship s = iteratorShip.next();
 
-                if(s.getVesselType().equals(vesselType) && count <= n){
+                if(s.getVesselType().equals(vesselType) && count < n){
+
                     shipsByVessel.add(s);
                     count++;}
 
             }
+
 
             double max = 0;
             Ship maxShip = null;
             List topNShips = new ArrayList();
 
             while(shipsByVessel.size() != 0){
+
 
                 for(Ship s : shipsByVessel){
 
